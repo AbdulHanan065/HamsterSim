@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70eb19f993686344b5f7a9236c1f128, type: 3}
+  m_Name: BowlData
+  m_EditorClassIdentifier: 
+  Bowl_stats:
+  - Icon: {fileID: 21300000, guid: c61a296a1c44b814fbd3df755183a3a3, type: 3}
+    Name: Ice Bowl
+    Discription: Ice BowlIce BowlIce BowlIce BowlIce Bowl
+    _Mat: {fileID: 2100000, guid: 7de15ee129ae401408a7ed989ed5f7a9, type: 2}
+    price: 0
+  - Icon: {fileID: 21300000, guid: edb5dd032a23d534bb6e0d31e06f52c9, type: 3}
+    Name: stone bowl
+    Discription: stone bowlstone bowlstone bowlstone bowl
+    _Mat: {fileID: 2100000, guid: d40d3961d2baeaa41925a894778d3091, type: 2}
+    price: 3
+  - Icon: {fileID: 21300010, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
+    Name: wood bowl
+    Discription: wood bowlwood bowlwood bowlwood bowl
+    _Mat: {fileID: 2100000, guid: 2a51cbdcfbd32874bb71aa78263bad8e, type: 2}
+    price: 5
+  - Icon: {fileID: 21300000, guid: 862e9f0d31ea667448a05c4d0ec24492, type: 3}
+    Name: simple bowl
+    Discription: simple bowlsimple bowlsimple bowlsimple bowl
+    _Mat: {fileID: 2100000, guid: bf37a3b8f80092348b16e2dce0027045, type: 2}
+    price: 7
+  - Icon: {fileID: 21300000, guid: 686309ee74ddecf4881a11c0f29efcc6, type: 3}
+    Name: green bowl
+    Discription: green bowlgreen bowlgreen bowlgreen bowl
+    _Mat: {fileID: 2100000, guid: 0448856d18a3e674196121ec01bc0a02, type: 2}
+    price: 3
+  - Icon: {fileID: 21300000, guid: a7eb39caa37204044ae09aa0c8699270, type: 3}
+    Name: potion bowl
+    Discription: potion bowlpotion bowlpotion bowlpotion bowl
+    _Mat: {fileID: 2100000, guid: 7f2101bebc3467a4e9d4a73700c66a43, type: 2}
+    price: 5
+  - Icon: {fileID: 21300000, guid: cfea15071ee3a4543ba205f132c5da33, type: 3}
+    Name: healing bowl
+    Discription: healing bowlhealing bowlhealing bowlhealing bowl
+    _Mat: {fileID: 2100000, guid: b61493ef14a95194fb66d58b8fb77493, type: 2}
+    price: 7

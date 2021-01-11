@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14335575f83f8bc419ed14fbebda77e8, type: 3}
+  m_Name: HouseData
+  m_EditorClassIdentifier: 
+  House_stats:
+  - Icon: {fileID: 21300000, guid: 1bcab9c339a8f8c46b587893e549f204, type: 3}
+    Name: Wood Hosue
+    Discription: Simple HosueSimple HosueSimple Hosue
+    Mat: {fileID: 2100000, guid: 85627001b910d7844846d5dfa5871e6e, type: 2}
+    price: 0
+  - Icon: {fileID: 21300000, guid: c75802c7c3aa0da428785d0f2205d763, type: 3}
+    Name: Mushroom House
+    Discription: Wood HouseWood HouseWood House
+    Mat: {fileID: 2100000, guid: 9b79440fcf579d94ba203a08368b5957, type: 2}
+    price: 3
+  - Icon: {fileID: 21300000, guid: 9165c128c0f37d147b31bec0223206b7, type: 3}
+    Name: Fashion House
+    Discription: ston Houseston Houseston Houseston House
+    Mat: {fileID: 2100000, guid: 9bf2ea3af79707d4baffd632a7d1098e, type: 2}
+    price: 5
+  - Icon: {fileID: 21300014, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
+    Name: Pudding House
+    Discription: great housegreat housegreat house
+    Mat: {fileID: 2100000, guid: f25dadc25894c61429dea04793c982ca, type: 2}
+    price: 7
+  - Icon: {fileID: 21300000, guid: 72f7d3138d397a94d82105b26272e764, type: 3}
+    Name: Stylish House
+    Discription: old man hosueold man hosueold man hosue
+    Mat: {fileID: 2100000, guid: 1558cea2094a8cb4d8f17650e0562430, type: 2}
+    price: 10
+  - Icon: {fileID: 21300000, guid: 9e1b5a4c48cc7aa4c9766432d52f1ea1, type: 3}
+    Name: Apple House
+    Discription: nice housenice housenice housenice house
+    Mat: {fileID: 2100000, guid: 960cd1ff04d25e242bd927db4a7f4a86, type: 2}
+    price: 15
+  - Icon: {fileID: 21300012, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
+    Name: Brick House
+    Discription: my housemy housemy housemy house
+    Mat: {fileID: 2100000, guid: c8bfc15e7f606574c96bb58f67019787, type: 2}
+    price: 3
+  - Icon: {fileID: 21300012, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
+    Name: Straw House
+    Discription: my housemy housemy housemy house
+    Mat: {fileID: 2100000, guid: c8bfc15e7f606574c96bb58f67019787, type: 2}
+    price: 5
+  - Icon: {fileID: 21300012, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
+    Name: Cat House
+    Discription: my housemy housemy housemy house
+    Mat: {fileID: 2100000, guid: c8bfc15e7f606574c96bb58f67019787, type: 2}
+    price: 7
+  - Icon: {fileID: 21300012, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
+    Name: Dog House
+    Discription: my housemy housemy housemy house
+    Mat: {fileID: 2100000, guid: c8bfc15e7f606574c96bb58f67019787, type: 2}
+    price: 10
+  - Icon: {fileID: 21300012, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
+    Name: Igloo House
+    Discription: my housemy housemy housemy house
+    Mat: {fileID: 2100000, guid: c8bfc15e7f606574c96bb58f67019787, type: 2}
+    price: 15

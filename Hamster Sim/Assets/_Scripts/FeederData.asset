@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ca818c1aaca1f4fbd6f573c335c3bb, type: 3}
+  m_Name: FeederData
+  m_EditorClassIdentifier: 
+  Feeder_stats:
+  - Icon: {fileID: 21300002, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
+    Name: Plastic Feeder
+    Discription: Plastic FeederPlastic FeederPlastic Feeder
+    Mat: {fileID: 2100000, guid: ab3344e9a17ac4e46936a2c9a506f47c, type: 2}
+    price: 0
+  - Icon: {fileID: 21300000, guid: 33742b0b80c27324595247552b372e51, type: 3}
+    Name: Wood Feeder
+    Discription: Wood FeederWood FeederWood Feeder
+    Mat: {fileID: 2100000, guid: 2fccb76f588d4d749928713d38489484, type: 2}
+    price: 3
+  - Icon: {fileID: 21300000, guid: c6a573918d6a9124bbbc89fd7959b44d, type: 3}
+    Name: Glass Feeder
+    Discription: Glass FeederGlass FeederGlass Feeder
+    Mat: {fileID: 2100000, guid: efc283947cfc18842bd1732caab509f4, type: 2}
+    price: 5
+  - Icon: {fileID: 21300000, guid: 4a46b7c6ff6f17a4a95bfb58b3397585, type: 3}
+    Name: Sweet Feeder
+    Discription: Sweet FeederSweet FeederSweet FeederSweet Feeder
+    Mat: {fileID: 2100000, guid: 50ac9aaf650337544b871e557fa095ca, type: 2}
+    price: 10
+  - Icon: {fileID: 21300000, guid: efbb5aef7691ecf409479e6bad3d703e, type: 3}
+    Name: Modern Feeder
+    Discription: Modern FeederModern FeederModern FeederModern Feeder
+    Mat: {fileID: 2100000, guid: 5662963a477ae6245a4c30ddcca47981, type: 2}
+    price: 3
+  - Icon: {fileID: 21300000, guid: c9bcb3ac64db75147b5fde5864fdfcb2, type: 3}
+    Name: Stylish Feeder
+    Discription: Stylish FeederStylish FeederStylish FeederStylish Feeder
+    Mat: {fileID: 2100000, guid: 81eaeb019ac298a4599161ccfd40d22e, type: 2}
+    price: 5

@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae042e77e3b1f747ade6bd06f6fe446, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  stats:
+  - PlayerAvater: {fileID: 21300000, guid: 3ae2188561dd11c45ab090d13f9d43af, type: 3}
+    HamsterPrefab: {fileID: 357540768129002686, guid: 151c7120763d9d546986a6442372ce87,
+      type: 3}
+    Name: Alita
+    Health: 70
+    Damage: 70
+    Defence: 60
+    Speed: 50
+    Discription: This Hamster is very rare and is found in Russia
+    Price: 0
+  - PlayerAvater: {fileID: 21300000, guid: db9408f3ac5b55d4f947ddd0c46f37ba, type: 3}
+    HamsterPrefab: {fileID: 339041159394011916, guid: eb9f2eb730895c84f9b44c5d06bcf0f0,
+      type: 3}
+    Name: Emma
+    Health: 75
+    Damage: 75
+    Defence: 50
+    Speed: 55
+    Discription: This Hamster is very cute and is found in deserts
+    Price: 10
+  - PlayerAvater: {fileID: 21300000, guid: 55521f6e68350ba4980d9714c543f621, type: 3}
+    HamsterPrefab: {fileID: 7201037665120683197, guid: 73da7c64f5da2a24c922c9b70ab0d99a,
+      type: 3}
+    Name: pie
+    Health: 50
+    Damage: 45
+    Defence: 65
+    Speed: 85
+    Discription: cutie cutie cutie cutie cutie
+    Price: 20
+  - PlayerAvater: {fileID: 21300000, guid: 7e6407775aa63c04caa49187d373423d, type: 3}
+    HamsterPrefab: {fileID: 1972039767300490505, guid: 2a80ee9d4211b7c4ca3fc2040fd08eeb,
+      type: 3}
+    Name: orange
+    Health: 78
+    Damage: 45
+    Defence: 75
+    Speed: 90
+    Discription: 'Hamster Hamster Hamster Hamster Hamster '
+    Price: 30
+  - PlayerAvater: {fileID: 21300000, guid: 378dffe53be03494e94453a722303094, type: 3}
+    HamsterPrefab: {fileID: 6095175526351327366, guid: 665a4ef17765b5a4e927758d231ba71d,
+      type: 3}
+    Name: jiene
+    Health: 90
+    Damage: 55
+    Defence: 70
+    Speed: 60
+    Discription: 'cutie Hamster cutie Hamster cutie Hamster '
+    Price: 5
+  - PlayerAvater: {fileID: 21300000, guid: 45b7ffd6ac84f7041aeb7a308f142573, type: 3}
+    HamsterPrefab: {fileID: 7025629028271262332, guid: c2a1cbf780177c3479f611f131bc9c21,
+      type: 3}
+    Name: moon
+    Health: 90
+    Damage: 95
+    Defence: 50
+    Speed: 70
+    Discription: star moon star moon star moon
+    Price: 10
+  - PlayerAvater: {fileID: 21300000, guid: 8f3ace28c5fedba4aa04058af44683a9, type: 3}
+    HamsterPrefab: {fileID: 5070042848282328933, guid: c000f82db30d4134c8a6ab7a99403e02,
+      type: 3}
+    Name: amber
+    Health: 45
+    Damage: 96
+    Defence: 55
+    Speed: 95
+    Discription: 'amber from skies '
+    Price: 15
