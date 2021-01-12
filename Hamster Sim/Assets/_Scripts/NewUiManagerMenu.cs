@@ -69,6 +69,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
     [Header("<--- Player Stats --->")]
     public int PlayerIndex;
+    public int PlayerCount;
     public GameObject[] Players;
     public Image PlayerImage;
     public TextMeshProUGUI nameText;
@@ -765,6 +766,12 @@ public class NewUiManagerMenu : MonoBehaviour
             Players[i].SetActive(true);
         }
 
+       
+
+        PlayerManager.Instance._PlayerType[PlayerIndex].Players[WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount].SetActive(true);
+        WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount++;
+
+       
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));

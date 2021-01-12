@@ -3077,6 +3077,7 @@ GameObject:
   - component: {fileID: 136648919}
   - component: {fileID: 136648918}
   - component: {fileID: 136648920}
+  - component: {fileID: 136648921}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3121,6 +3122,7 @@ MonoBehaviour:
   ToffeeCoinsText: {fileID: 1713149670}
   DiamondCoinsText: {fileID: 1153362265}
   PlayerIndex: 0
+  PlayerCount: 0
   Players:
   - {fileID: 322427412}
   - {fileID: 1177711196}
@@ -3335,6 +3337,50 @@ MonoBehaviour:
   ShopCamera: {fileID: 1990654276}
   TopDownCamera: {fileID: 493685227}
   DirectionalLight: {fileID: 705507993}
+--- !u!114 &136648921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136648917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99e606fe40fa5944901fd9292bf2953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _WorldData:
+  - WorldNo: 0
+    World: {fileID: 1566116023}
+    TotalPlayerCount: 0
+  - WorldNo: 1
+    World: {fileID: 168977721}
+    TotalPlayerCount: 0
+  - WorldNo: 2
+    World: {fileID: 1724964429}
+    TotalPlayerCount: 0
+  - WorldNo: 3
+    World: {fileID: 1120690447}
+    TotalPlayerCount: 0
+  - WorldNo: 4
+    World: {fileID: 1179523709}
+    TotalPlayerCount: 0
+  - WorldNo: 0
+    World: {fileID: 0}
+    TotalPlayerCount: 0
+  - WorldNo: 0
+    World: {fileID: 0}
+    TotalPlayerCount: 0
+  - WorldNo: 0
+    World: {fileID: 0}
+    TotalPlayerCount: 0
+  - WorldNo: 0
+    World: {fileID: 0}
+    TotalPlayerCount: 0
+  - WorldNo: 0
+    World: {fileID: 0}
+    TotalPlayerCount: 0
+  WorldIndex: 0
 --- !u!1 &139071814
 GameObject:
   m_ObjectHideFlags: 0
@@ -23295,6 +23341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1028594697}
+  - component: {fileID: 1028594698}
   m_Layer: 0
   m_Name: Hamsters
   m_TagString: Untagged
@@ -23323,6 +23370,96 @@ Transform:
   m_Father: {fileID: 1566116027}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1028594698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028594696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 637042c2a176e0e4db1397b9599c4477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PlayerType:
+  - Players:
+    - {fileID: 2065943990}
+    - {fileID: 1347045445}
+    - {fileID: 1474136278}
+    - {fileID: 1321121448}
+    - {fileID: 549117157}
+    - {fileID: 1114011437}
+    - {fileID: 1266350813}
+    - {fileID: 1582421727}
+    - {fileID: 1852799623}
+    - {fileID: 1605757252}
+  - Players:
+    - {fileID: 964213682}
+    - {fileID: 1384274822}
+    - {fileID: 841524541}
+    - {fileID: 1983985323}
+    - {fileID: 2016781550}
+    - {fileID: 424304272}
+    - {fileID: 2041213361}
+    - {fileID: 1779883533}
+    - {fileID: 1850009361}
+    - {fileID: 1891806452}
+  - Players:
+    - {fileID: 1243990453}
+    - {fileID: 929577584}
+    - {fileID: 1046170383}
+    - {fileID: 1793388420}
+    - {fileID: 35535750}
+    - {fileID: 164846692}
+    - {fileID: 898525011}
+    - {fileID: 785847250}
+    - {fileID: 1020736118}
+    - {fileID: 306827552}
+  - Players:
+    - {fileID: 587625174}
+    - {fileID: 1998489870}
+    - {fileID: 613774682}
+    - {fileID: 693618862}
+    - {fileID: 107148149}
+    - {fileID: 1672309727}
+    - {fileID: 400570018}
+    - {fileID: 617837511}
+    - {fileID: 1809371021}
+    - {fileID: 179903922}
+  - Players:
+    - {fileID: 1812469019}
+    - {fileID: 1109019269}
+    - {fileID: 550901248}
+    - {fileID: 421505012}
+    - {fileID: 1808889114}
+    - {fileID: 1609070963}
+    - {fileID: 1961740896}
+    - {fileID: 605565929}
+    - {fileID: 2101725001}
+    - {fileID: 1784970293}
+  - Players:
+    - {fileID: 839883380}
+    - {fileID: 1480772350}
+    - {fileID: 1931547236}
+    - {fileID: 568837826}
+    - {fileID: 2047548446}
+    - {fileID: 1625372164}
+    - {fileID: 1088504085}
+    - {fileID: 1093617419}
+    - {fileID: 468123526}
+    - {fileID: 2088421943}
+  - Players:
+    - {fileID: 757091895}
+    - {fileID: 321252952}
+    - {fileID: 1382559559}
+    - {fileID: 1317301163}
+    - {fileID: 1756876160}
+    - {fileID: 1350087933}
+    - {fileID: 72310197}
+    - {fileID: 374126769}
+    - {fileID: 609606435}
+    - {fileID: 286970341}
 --- !u!1 &1031179348
 GameObject:
   m_ObjectHideFlags: 0
@@ -34666,6 +34803,17 @@ MonoBehaviour:
       - m_Target: {fileID: 526513582}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 136648918}
+        m_MethodName: SelectPlayer
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
