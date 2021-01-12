@@ -50,6 +50,8 @@ public class NewUiManagerMenu : MonoBehaviour
     public GameObject CagePanel;
     public GameObject BGPanel;
     public GameObject NotEnoughCashPanel;
+
+  
     [Header("<--- Economy --->")]
 
     public bool giveMoney;
@@ -79,6 +81,9 @@ public class NewUiManagerMenu : MonoBehaviour
     public Image DamageSlider;
     public Image DefenceSlider;
     public Image SpeedSlider;
+    public GameObject CongratsPlayerPanel;
+    public Image CongratsPlayerItemImage;
+    public TextMeshProUGUI CongratsPlayerItemName;
 
     [Header("<--- Bowl Stats --->")]
     public int BowlIndex;
@@ -94,6 +99,10 @@ public class NewUiManagerMenu : MonoBehaviour
     public GameObject BowlNextBtn;
     public GameObject BowlPreviousBtn;
 
+    public GameObject CongratsBowlPanel;
+    public Image CongratsBowlItemImage;
+    public TextMeshProUGUI CongratsBowlItemName;
+
     [Header("<--- Food Stats --->")]
     public int FoodIndex;
     public GameObject[] Foods;
@@ -107,6 +116,10 @@ public class NewUiManagerMenu : MonoBehaviour
     public GameObject SelectFoodBtn;
     public GameObject FoodNextBtn;
     public GameObject FoodPreviousBtn;
+
+    public GameObject CongratsFoodPanel;
+    public Image CongratsFoodItemImage;
+    public TextMeshProUGUI CongratsFoodItemName;
 
     [Header("<--- House Stats --->")]
     public int HouseIndex;
@@ -122,7 +135,9 @@ public class NewUiManagerMenu : MonoBehaviour
     public GameObject HouseNextBtn;
     public GameObject HousePreviousBtn;
 
-
+    public GameObject CongratsHousePanel;
+    public Image CongratsHouseItemImage;
+    public TextMeshProUGUI CongratsHouseItemName;
     [Header("<--- Feeder Stats --->")]
     public int FeederIndex;
     public GameObject[] Feeders;
@@ -137,6 +152,9 @@ public class NewUiManagerMenu : MonoBehaviour
     public GameObject FeederNextBtn;
     public GameObject FeederPreviousBtn;
 
+    public GameObject CongratsFeederPanel;
+    public Image CongratsFedderItemImage;
+    public TextMeshProUGUI CongratsFeederItemName;
     [Header("<--- Toys Stats --->")]
     public int ToyIndex;
     public GameObject[] Toys;
@@ -151,6 +169,9 @@ public class NewUiManagerMenu : MonoBehaviour
     public GameObject ToyNextBtn;
     public GameObject ToyPreviousBtn;
 
+    public GameObject CongratsToyPanel;
+    public Image CongratsToyItemImage;
+    public TextMeshProUGUI CongratsToyItemName;
     [Header("<--- Cage Stats --->")]
     public int CageIndex;
     public GameObject[] Cages;
@@ -164,7 +185,9 @@ public class NewUiManagerMenu : MonoBehaviour
     public GameObject SelectCageBtn;
     public GameObject CageNextBtn;
     public GameObject CagePreviousBtn;
-
+    public GameObject CongratsCagePanel;
+    public Image CongratsCageItemImage;
+    public TextMeshProUGUI CongratsCageItemName;
 
     [Header("<--- BG Stats --->")]
     public int BGIndex;
@@ -180,6 +203,9 @@ public class NewUiManagerMenu : MonoBehaviour
     public GameObject BGNextBtn;
     public GameObject BGPreviousBtn;
 
+    public GameObject CongratsBgPanel;
+    public Image CongratsBgItemImage;
+    public TextMeshProUGUI CongratsBgItemName;
 
     #endregion
 
@@ -672,6 +698,7 @@ public class NewUiManagerMenu : MonoBehaviour
                 BuyDiamondBtn.SetActive(false);
                 //WatchVideoBtn.SetActive(false);
                 SelectBtn.SetActive(true);
+                CongratsPlayer();
                 PlayerPrefs.SetInt("players" + PlayerIndex, 1);
                 PlayerPrefs.SetInt("player_bought", PlayerIndex);
             }
@@ -688,10 +715,24 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("player_bought", PlayerIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        //AudioManager.instance.PlaySound("buybutton");
 
     }
 
+
+    void CongratsPlayer()
+    {
+        CongratsPlayerPanel.SetActive(true);
+        CongratsPlayerItemImage.sprite = _PlayerData.stats[PlayerIndex].PlayerAvater;
+        CongratsPlayerItemName.text = _PlayerData.stats[PlayerIndex].Name;
+
+        for (int i = 0; i < Players.Length; i++)
+        {
+            Players[i].SetActive(false);
+        }
+
+        //AudioManager.instance.PlaySound("congrats");
+    }
 
 
     #endregion
@@ -851,6 +892,7 @@ public class NewUiManagerMenu : MonoBehaviour
                 BowlLockImage.gameObject.SetActive(false);
                 BuyBowlToffeeBtn.SetActive(false);
                 BuyBowlDiamondBtn.SetActive(false);
+                CongratsBowl();
                 //WatchVideoBtn.SetActive(false);
                 SelectBowlBtn.SetActive(true);
                 PlayerPrefs.SetInt("bowl" + BowlIndex, 1);
@@ -873,7 +915,19 @@ public class NewUiManagerMenu : MonoBehaviour
 
     }
 
+    void CongratsBowl()
+    {
+        CongratsBowlPanel.SetActive(true);
+        CongratsBowlItemImage.sprite = _BowlData.Bowl_stats[BowlIndex].Icon;
+        CongratsBowlItemName.text = _BowlData.Bowl_stats[BowlIndex].Name;
 
+        for (int i = 0; i < Bowls.Length; i++)
+        {
+            Bowls[i].SetActive(false);
+        }
+
+        //AudioManager.instance.PlaySound("congrats");
+    }
 
     #endregion
 
@@ -1032,6 +1086,7 @@ public class NewUiManagerMenu : MonoBehaviour
                 FoodLockImage.gameObject.SetActive(false);
                 BuyFoodToffeeBtn.SetActive(false);
                 BuyFoodDiamondBtn.SetActive(false);
+                CongratsFood();
                 //WatchVideoBtn.SetActive(false);
                 SelectFoodBtn.SetActive(true);
                 PlayerPrefs.SetInt("food" + FoodIndex, 1);
@@ -1052,6 +1107,20 @@ public class NewUiManagerMenu : MonoBehaviour
         }
         //AudioManager.instance.PlaySound("button");
 
+    }
+
+    void CongratsFood()
+    {
+        CongratsFoodPanel.SetActive(true);
+        CongratsFoodItemImage.sprite = _FoodData.Food_stats[FoodIndex].Icon;
+        CongratsFoodItemName.text = _FoodData.Food_stats[FoodIndex].Name;
+
+        for (int i = 0; i < Foods.Length; i++)
+        {
+            Foods[i].SetActive(false);
+        }
+
+        //AudioManager.instance.PlaySound("congrats");
     }
 
 
@@ -1213,6 +1282,7 @@ public class NewUiManagerMenu : MonoBehaviour
                 HouseLockImage.gameObject.SetActive(false);
                 BuyHouseToffeeBtn.SetActive(false);
                 BuyHouseDiamondBtn.SetActive(false);
+                CongratsHouse();
                 //WatchVideoBtn.SetActive(false);
                 SelectHouseBtn.SetActive(true);
                 PlayerPrefs.SetInt("house" + HouseIndex, 1);
@@ -1233,6 +1303,20 @@ public class NewUiManagerMenu : MonoBehaviour
         }
         //AudioManager.instance.PlaySound("button");
 
+    }
+
+    void CongratsHouse()
+    {
+        CongratsHousePanel.SetActive(true);
+        CongratsHouseItemImage.sprite = _HouseData.House_stats[HouseIndex].Icon;
+        CongratsHouseItemName.text = _HouseData.House_stats[HouseIndex].Name;
+
+        for (int i = 0; i < Houses.Length; i++)
+        {
+            Houses[i].SetActive(false);
+        }
+
+        //AudioManager.instance.PlaySound("congrats");
     }
 
     #endregion
@@ -1391,6 +1475,7 @@ public class NewUiManagerMenu : MonoBehaviour
                 FeederLockImage.gameObject.SetActive(false);
                 BuyFeederToffeeBtn.SetActive(false);
                 BuyFeederDiamondBtn.SetActive(false);
+                CongratsFeeder();
                 //WatchVideoBtn.SetActive(false);
                 SelectFeederBtn.SetActive(true);
                 PlayerPrefs.SetInt("feeder" + FeederIndex, 1);
@@ -1412,7 +1497,19 @@ public class NewUiManagerMenu : MonoBehaviour
         //AudioManager.instance.PlaySound("button");
 
     }
+    void CongratsFeeder()
+    {
+        CongratsFeederPanel.SetActive(true);
+        CongratsFedderItemImage.sprite = _FeederData.Feeder_stats[FeederIndex].Icon;
+        CongratsFeederItemName.text = _FeederData.Feeder_stats[FeederIndex].Name;
 
+        for (int i = 0; i < Feeders.Length; i++)
+        {
+            Feeders[i].SetActive(false);
+        }
+
+        //AudioManager.instance.PlaySound("congrats");
+    }
 
     #endregion
 
@@ -1571,6 +1668,7 @@ public class NewUiManagerMenu : MonoBehaviour
                 ToyLockImage.gameObject.SetActive(false);
                 BuyToyToffeeBtn.SetActive(false);
                 BuyToyDiamondBtn.SetActive(false);
+                CongratsToy();
                 //WatchVideoBtn.SetActive(false);
                 SelectToyBtn.SetActive(true);
                 PlayerPrefs.SetInt("toy" + ToyIndex, 1);
@@ -1591,6 +1689,20 @@ public class NewUiManagerMenu : MonoBehaviour
         }
         //AudioManager.instance.PlaySound("button");
 
+    }
+
+    void CongratsToy()
+    {
+        CongratsToyPanel.SetActive(true);
+        CongratsToyItemImage.sprite = _WheelData.Wheel_stats[ToyIndex].Icon;
+        CongratsToyItemName.text = _WheelData.Wheel_stats[ToyIndex].Name;
+
+        for (int i = 0; i < Toys.Length; i++)
+        {
+            Toys[i].SetActive(false);
+        }
+
+        //AudioManager.instance.PlaySound("congrats");
     }
 
     #endregion
@@ -1751,6 +1863,7 @@ public class NewUiManagerMenu : MonoBehaviour
                 CageLockImage.gameObject.SetActive(false);
                 BuyCageToffeeBtn.SetActive(false);
                 BuyCageDiamondBtn.SetActive(false);
+                CongratsCage();
                 //WatchVideoBtn.SetActive(false);
                 SelectCageBtn.SetActive(true);
                 PlayerPrefs.SetInt("cage" + CageIndex, 1);
@@ -1772,6 +1885,21 @@ public class NewUiManagerMenu : MonoBehaviour
         //AudioManager.instance.PlaySound("button");
 
     }
+
+    void CongratsCage()
+    {
+        CongratsCagePanel.SetActive(true);
+        CongratsCageItemImage.sprite = _CageData.Cage_Data[CageIndex].Icon;
+        CongratsCageItemName.text = _CageData.Cage_Data[CageIndex].Name;
+
+        for (int i = 0; i < Cages.Length; i++)
+        {
+            Cages[i].SetActive(false);
+        }
+
+        //AudioManager.instance.PlaySound("congrats");
+    }
+
 
     #endregion
 
@@ -1932,6 +2060,7 @@ public class NewUiManagerMenu : MonoBehaviour
                 BGLockImage.gameObject.SetActive(false);
                 BuyBGToffeeBtn.SetActive(false);
                 BuyBGDiamondBtn.SetActive(false);
+                CongratsBg();
                 //WatchVideoBtn.SetActive(false);
                 SelectBGBtn.SetActive(true);
                 PlayerPrefs.SetInt("bg" + BGIndex, 1);
@@ -1953,6 +2082,21 @@ public class NewUiManagerMenu : MonoBehaviour
         //AudioManager.instance.PlaySound("button");
 
     }
+
+    void CongratsBg()
+    {
+        CongratsBgPanel.SetActive(true);
+        CongratsBgItemImage.sprite = _BGData.BG[BGIndex].Icon;
+        CongratsBgItemName.text = _BGData.BG[BGIndex].Name;
+
+        for (int i = 0; i < BGs.Length; i++)
+        {
+            BGs[i].SetActive(false);
+        }
+
+        //AudioManager.instance.PlaySound("congrats");
+    }
+
 
     #endregion
 }
