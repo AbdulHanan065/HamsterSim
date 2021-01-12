@@ -766,7 +766,8 @@ public class NewUiManagerMenu : MonoBehaviour
             Players[i].SetActive(true);
         }
 
-       
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
 
         PlayerManager.Instance._PlayerType[PlayerIndex].Players[WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount].SetActive(true);
         WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount++;
