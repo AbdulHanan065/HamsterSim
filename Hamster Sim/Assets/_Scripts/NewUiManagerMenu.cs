@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -601,10 +602,10 @@ public class NewUiManagerMenu : MonoBehaviour
             SelectBtn.SetActive(false);
             PlayerLock.gameObject.SetActive(true);
         }
-       
+
         //FindObjectOfType<AudioManager>().PlaySound("button");
 
-
+        Players[PlayerIndex].GetComponent<DOTweenAnimation>().DORestartById("player");
 
     }
 
@@ -677,7 +678,7 @@ public class NewUiManagerMenu : MonoBehaviour
             PlayerLock.gameObject.SetActive(true);
         }
         //  FindObjectOfType<AudioManager>().PlaySound("button");
-
+        Players[PlayerIndex].GetComponent<DOTweenAnimation>().DORestartById("player");
     }
 
 
