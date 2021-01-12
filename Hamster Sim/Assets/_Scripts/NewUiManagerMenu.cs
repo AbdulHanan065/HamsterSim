@@ -30,7 +30,7 @@ public class NewUiManagerMenu : MonoBehaviour
     #region Variables
 
 
-    [Header("<--- Player Stats --->")]
+    [Header("<--- Meta Data --->")]
     public PlayerData _PlayerData;
     public BowlData _BowlData;
     public HouseData _HouseData;
@@ -39,8 +39,14 @@ public class NewUiManagerMenu : MonoBehaviour
     public WheelData _WheelData;
     public CageData _CageData;
     public BGData _BGData;
+
+    [Header("<--- Buttons --->")]
+    public GameObject ShopButton;
+
+
     [Header("<--- Panels --->")]
 
+    public GameObject ShopMainPanel;
     public GameObject PlayerPanel;
     public GameObject BowlPanel;
     public GameObject FoodPanel;
@@ -726,12 +732,38 @@ public class NewUiManagerMenu : MonoBehaviour
         CongratsPlayerItemImage.sprite = _PlayerData.stats[PlayerIndex].PlayerAvater;
         CongratsPlayerItemName.text = _PlayerData.stats[PlayerIndex].Name;
 
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+
         for (int i = 0; i < Players.Length; i++)
         {
             Players[i].SetActive(false);
         }
 
         //AudioManager.instance.PlaySound("congrats");
+    }
+
+
+    public void SelectPlayer()
+    {
+
+
+        PlayerPrefs.SetInt("players" + PlayerIndex, 0);
+
+        CongratsPlayerPanel.SetActive(false);
+        PlayerPanel.SetActive(false);
+        ShopMainPanel.SetActive(false);
+        ShopButton.SetActive(true);
+        for (int i = 0; i < Players.Length; i++)
+        {
+            Players[i].SetActive(true);
+        }
+
+        //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
+        //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
+        //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
+
+
     }
 
 
@@ -920,13 +952,36 @@ public class NewUiManagerMenu : MonoBehaviour
         CongratsBowlPanel.SetActive(true);
         CongratsBowlItemImage.sprite = _BowlData.Bowl_stats[BowlIndex].Icon;
         CongratsBowlItemName.text = _BowlData.Bowl_stats[BowlIndex].Name;
-
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
         for (int i = 0; i < Bowls.Length; i++)
         {
             Bowls[i].SetActive(false);
         }
 
         //AudioManager.instance.PlaySound("congrats");
+    }
+
+    public void SelectBowl()
+    {
+
+
+        PlayerPrefs.SetInt("bowl" + BowlIndex, 0);
+
+        CongratsBowlPanel.SetActive(false);
+        BowlPanel.SetActive(false);
+        ShopMainPanel.SetActive(false);
+        ShopButton.SetActive(true);
+        for (int i = 0; i < Bowls.Length; i++)
+        {
+            Bowls[i].SetActive(true);
+        }
+
+        //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
+        //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
+        //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
+
+
     }
 
     #endregion
@@ -1124,6 +1179,30 @@ public class NewUiManagerMenu : MonoBehaviour
     }
 
 
+    public void SelectFood()
+    {
+
+
+        PlayerPrefs.SetInt("food" + FoodIndex, 0);
+
+        CongratsFoodPanel.SetActive(false);
+        FoodPanel.SetActive(false);
+        ShopMainPanel.SetActive(false);
+        ShopButton.SetActive(true);
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+        for (int i = 0; i < Foods.Length; i++)
+        {
+            Foods[i].SetActive(true);
+        }
+
+        //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
+        //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
+        //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
+
+
+    }
+
     #endregion
 
     #region HouseData
@@ -1310,13 +1389,37 @@ public class NewUiManagerMenu : MonoBehaviour
         CongratsHousePanel.SetActive(true);
         CongratsHouseItemImage.sprite = _HouseData.House_stats[HouseIndex].Icon;
         CongratsHouseItemName.text = _HouseData.House_stats[HouseIndex].Name;
-
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
         for (int i = 0; i < Houses.Length; i++)
         {
             Houses[i].SetActive(false);
         }
 
         //AudioManager.instance.PlaySound("congrats");
+    }
+
+
+    public void SelectHouse()
+    {
+
+
+        PlayerPrefs.SetInt("house" + HouseIndex, 0);
+
+        CongratsHousePanel.SetActive(false);
+        HosuePanel.SetActive(false);
+        ShopMainPanel.SetActive(false);
+        ShopButton.SetActive(true);
+        for (int i = 0; i < Houses.Length; i++)
+        {
+            Houses[i].SetActive(true);
+        }
+
+        //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
+        //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
+        //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
+
+
     }
 
     #endregion
@@ -1502,13 +1605,37 @@ public class NewUiManagerMenu : MonoBehaviour
         CongratsFeederPanel.SetActive(true);
         CongratsFedderItemImage.sprite = _FeederData.Feeder_stats[FeederIndex].Icon;
         CongratsFeederItemName.text = _FeederData.Feeder_stats[FeederIndex].Name;
-
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
         for (int i = 0; i < Feeders.Length; i++)
         {
             Feeders[i].SetActive(false);
         }
 
         //AudioManager.instance.PlaySound("congrats");
+    }
+
+
+    public void SelectFeeder()
+    {
+
+
+        PlayerPrefs.SetInt("feeder" + FeederIndex, 0);
+
+        CongratsFeederPanel.SetActive(false);
+        FeederPanel.SetActive(false);
+        ShopMainPanel.SetActive(false);
+        ShopButton.SetActive(true);
+        for (int i = 0; i < Feeders.Length; i++)
+        {
+            Feeders[i].SetActive(true);
+        }
+
+        //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
+        //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
+        //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
+
+
     }
 
     #endregion
@@ -1696,13 +1823,37 @@ public class NewUiManagerMenu : MonoBehaviour
         CongratsToyPanel.SetActive(true);
         CongratsToyItemImage.sprite = _WheelData.Wheel_stats[ToyIndex].Icon;
         CongratsToyItemName.text = _WheelData.Wheel_stats[ToyIndex].Name;
-
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
         for (int i = 0; i < Toys.Length; i++)
         {
             Toys[i].SetActive(false);
         }
 
         //AudioManager.instance.PlaySound("congrats");
+    }
+
+
+    public void SelectToy()
+    {
+
+
+        PlayerPrefs.SetInt("toy" + ToyIndex, 0);
+
+        CongratsToyPanel.SetActive(false);
+        WheelPanel.SetActive(false);
+        ShopMainPanel.SetActive(false);
+        ShopButton.SetActive(true);
+        for (int i = 0; i < Toys.Length; i++)
+        {
+            Toys[i].SetActive(true);
+        }
+
+        //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
+        //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
+        //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
+
+
     }
 
     #endregion
@@ -1891,7 +2042,8 @@ public class NewUiManagerMenu : MonoBehaviour
         CongratsCagePanel.SetActive(true);
         CongratsCageItemImage.sprite = _CageData.Cage_Data[CageIndex].Icon;
         CongratsCageItemName.text = _CageData.Cage_Data[CageIndex].Name;
-
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
         for (int i = 0; i < Cages.Length; i++)
         {
             Cages[i].SetActive(false);
@@ -1900,6 +2052,28 @@ public class NewUiManagerMenu : MonoBehaviour
         //AudioManager.instance.PlaySound("congrats");
     }
 
+
+    public void SelectCage()
+    {
+
+
+        PlayerPrefs.SetInt("cage" + CageIndex, 0);
+
+        CongratsCagePanel.SetActive(false);
+        CagePanel.SetActive(false);
+        ShopMainPanel.SetActive(false);
+        ShopButton.SetActive(true);
+        for (int i = 0; i < Cages.Length; i++)
+        {
+            Cages[i].SetActive(true);
+        }
+
+        //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
+        //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
+        //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
+
+
+    }
 
     #endregion
 
@@ -2088,7 +2262,8 @@ public class NewUiManagerMenu : MonoBehaviour
         CongratsBgPanel.SetActive(true);
         CongratsBgItemImage.sprite = _BGData.BG[BGIndex].Icon;
         CongratsBgItemName.text = _BGData.BG[BGIndex].Name;
-
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
         for (int i = 0; i < BGs.Length; i++)
         {
             BGs[i].SetActive(false);
@@ -2097,6 +2272,28 @@ public class NewUiManagerMenu : MonoBehaviour
         //AudioManager.instance.PlaySound("congrats");
     }
 
+
+    public void SelectBG()
+    {
+
+
+       // PlayerPrefs.SetInt("bg" + BGIndex, 0);
+
+        CongratsBgPanel.SetActive(false);
+        BGPanel.SetActive(false);
+        ShopMainPanel.SetActive(false);
+        ShopButton.SetActive(true);
+        for (int i = 0; i < BGs.Length; i++)
+        {
+            BGs[i].SetActive(true);
+        }
+
+        //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
+        //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
+        //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
+
+
+    }
 
     #endregion
 }
