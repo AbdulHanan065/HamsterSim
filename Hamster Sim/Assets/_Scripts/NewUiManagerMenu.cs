@@ -361,6 +361,10 @@ public class NewUiManagerMenu : MonoBehaviour
         FeederPanel.SetActive(false);
 
 
+
+        MenuSceneManager.Instance.ShopCamera.SetActive(true);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(false);
+
     }
 
 
@@ -374,6 +378,9 @@ public class NewUiManagerMenu : MonoBehaviour
         BGPanel.SetActive(false);
         CagePanel.SetActive(false);
         FeederPanel.SetActive(false);
+
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
     }
 
 

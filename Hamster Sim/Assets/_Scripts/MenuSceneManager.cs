@@ -5,11 +5,10 @@ using UnityEngine;
 public class MenuSceneManager : MonoBehaviour
 {
 
-    public GameObject[] PlayersSpwanPoint;
-    public GameObject BowlMat;
-    public GameObject HouseMat;
-    public GameObject FoodMat;
-    public GameObject WheelMat;
+    public GameObject MainCamera;
+    public GameObject ShopCamera;
+    public GameObject TopDownCamera;
+
 
 
     private static MenuSceneManager _Instance;

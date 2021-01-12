@@ -38,7 +38,7 @@ public class SaveManager : MonoBehaviour
             GameSaving.loaded = false;
         }
 
-        uniqueId =  namee+UiMangerMenu.Instance.HamsterCount[UiMangerMenu.Instance.PlayerIndex].ToString();
+      //  uniqueId =  namee+UiMangerMenu.Instance.HamsterCount[UiMangerMenu.Instance.PlayerIndex].ToString();
     }
    
 
@@ -70,7 +70,7 @@ public class SaveManager : MonoBehaviour
 
         string jsonData = JsonUtility.ToJson(gameSaving);
        // File.WriteAllText(Application.persistentDataPath, jsonData);
-        File.WriteAllText(Application.dataPath+ "/" + saveFilename + UiMangerMenu.Instance.HamsterCount[UiMangerMenu.Instance.PlayerIndex]+ ".txt", jsonData);
+        //File.WriteAllText(Application.dataPath+ "/" + saveFilename + UiMangerMenu.Instance.HamsterCount[UiMangerMenu.Instance.PlayerIndex]+ ".txt", jsonData);
 
         Debug.Log("saveobj.serializedPosition" + gameSaving.serializedPosition);
         Debug.Log("saveobj.serializedRotation" + gameSaving.serializedRotation);
@@ -82,19 +82,19 @@ public class SaveManager : MonoBehaviour
         //GameSaving gameSaving = JsonUtility.FromJson<GameSaving>(File.ReadAllText(Application.persistentDataPath + "/saveload.json"));
        
 
-        string saveString = File.ReadAllText(Application.dataPath + "/"+ saveFilename+ UiMangerMenu.Instance.HamsterCount[UiMangerMenu.Instance.PlayerIndex]+".txt");
-        GameSaving saveobj = JsonUtility.FromJson<GameSaving>(saveString);
+        //string saveString = File.ReadAllText(Application.dataPath + "/"+ saveFilename+ UiMangerMenu.Instance.HamsterCount[UiMangerMenu.Instance.PlayerIndex]+".txt");
+        //GameSaving saveobj = JsonUtility.FromJson<GameSaving>(saveString);
 
 
-        this.transform.position = saveobj.serializedPosition;
-        this.transform.rotation = saveobj.serializedRotation;
+        //this.transform.position = saveobj.serializedPosition;
+        //this.transform.rotation = saveobj.serializedRotation;
 
-        // SceneManager.LoadScene(saveobj.sceneName);
-        Debug.Log("saveobj.serializedPosition" + saveobj.serializedPosition);
-        Debug.Log("saveobj.serializedRotation" + saveobj.serializedRotation);
+        //// SceneManager.LoadScene(saveobj.sceneName);
+        //Debug.Log("saveobj.serializedPosition" + saveobj.serializedPosition);
+        //Debug.Log("saveobj.serializedRotation" + saveobj.serializedRotation);
        
-        GameSaving.loaded = true;
+        //GameSaving.loaded = true;
 
-        Debug.Log(Application.dataPath + "data loaded");
+        //Debug.Log(Application.dataPath + "data loaded");
     }
 }
