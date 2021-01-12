@@ -16,35 +16,42 @@ MonoBehaviour:
   - Icon: {fileID: 21300000, guid: 1bcab9c339a8f8c46b587893e549f204, type: 3}
     Name: Normal
     Discription: NormalNormalNormalNormal
-    Mat: {fileID: 2100000, guid: efc283947cfc18842bd1732caab509f4, type: 2}
+    Mat: {fileID: 2100000, guid: 85cf0b004bc4a654b9e501efcce47902, type: 2}
+    LightColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0}
     price: 0
   - Icon: {fileID: 21300000, guid: 9fc903a211cc80e4a94ec6c551eefe37, type: 3}
     Name: Sunny
     Discription: SunnySunnySunny
-    Mat: {fileID: 2100000, guid: 7d8642d91e43fa94a9d7f13346d31d07, type: 2}
+    Mat: {fileID: 2100000, guid: c52c5d7968fa6c9499b0b5752f899bfb, type: 2}
+    LightColor: {r: 0.8584906, g: 0.72575134, b: 0.49808654, a: 0}
     price: 5
   - Icon: {fileID: 21300000, guid: e60fbeee962473a4bb627f9d7dc341b0, type: 3}
     Name: Evening
     Discription: EveningEveningEvening
-    Mat: {fileID: 2100000, guid: 34a17f31ab0f061478a10cd279c11b45, type: 2}
+    Mat: {fileID: 2100000, guid: e2341a9d03e86ec4290c72b1e22bbc7c, type: 2}
+    LightColor: {r: 0.8679245, g: 0.49142197, b: 0.33161268, a: 0}
     price: 10
   - Icon: {fileID: 21300000, guid: c61a296a1c44b814fbd3df755183a3a3, type: 3}
     Name: Night
     Discription: NightNightNight
-    Mat: {fileID: 2100000, guid: c5fb9c22889476f41ab5ae22d93067b1, type: 2}
+    Mat: {fileID: 2100000, guid: d4454f71d85928744be7771e2143dab7, type: 2}
+    LightColor: {r: 0.18356177, g: 0.30765882, b: 0.5188679, a: 0}
     price: 20
   - Icon: {fileID: 21300000, guid: c75802c7c3aa0da428785d0f2205d763, type: 3}
     Name: Snowy
     Discription: SnowySnowySnowy
-    Mat: {fileID: 2100000, guid: 34a17f31ab0f061478a10cd279c11b45, type: 2}
+    Mat: {fileID: 2100000, guid: f15c336556dd74f40aaca655f7767970, type: 2}
+    LightColor: {r: 0.27536488, g: 0.47084576, b: 0.49056602, a: 0}
     price: 5
   - Icon: {fileID: 21300000, guid: 28160f83aa367fc49b109808c53d3372, type: 3}
     Name: Rainy
     Discription: RainyRainyRainy
-    Mat: {fileID: 2100000, guid: ed2c55cb744c48c459f2f9c83be317dc, type: 2}
+    Mat: {fileID: 2100000, guid: 2039a0ad0a9d05549928b70362f54902, type: 2}
+    LightColor: {r: 0.26477394, g: 0.28135058, b: 0.3207547, a: 0}
     price: 10
   - Icon: {fileID: 21300000, guid: 712aaad2e394b5c4bb43d77eb4ae85b6, type: 3}
     Name: Futuristic
     Discription: FuturisticFuturisticFuturisticFuturistic
-    Mat: {fileID: 2100000, guid: 2fccb76f588d4d749928713d38489484, type: 2}
+    Mat: {fileID: 2100000, guid: 5d133deeaa66ed445853e946ff25e073, type: 2}
+    LightColor: {r: 0.6886792, g: 0.31510323, b: 0.48135778, a: 0}
     price: 20

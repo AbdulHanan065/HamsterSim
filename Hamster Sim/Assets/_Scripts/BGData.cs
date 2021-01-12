@@ -17,6 +17,7 @@ public class BGData : ScriptableObject
         public string Name;
         public string Discription;
         public Material Mat;
+        public Color LightColor;
         public int price;
 
     }

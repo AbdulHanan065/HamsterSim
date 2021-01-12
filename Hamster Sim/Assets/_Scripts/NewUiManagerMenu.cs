@@ -259,6 +259,11 @@ public class NewUiManagerMenu : MonoBehaviour
 
             DiamondCoins = PlayerPrefs.GetInt("diamonds");
             DiamondCoinsText.text = DiamondCoins.ToString() + " D";
+
+            Debug.Log("BG no :"+ PlayerPrefs.GetInt("bg_bought"));
+
+            RenderSettings.skybox = _BGData.BG[PlayerPrefs.GetInt("bg_bought")].Mat;
+            MenuSceneManager.Instance.DirectionalLight.GetComponent<Light>().color = _BGData.BG[PlayerPrefs.GetInt("bg_bought")].LightColor;
         }
     }
 
@@ -2277,7 +2282,7 @@ public class NewUiManagerMenu : MonoBehaviour
     {
 
 
-       // PlayerPrefs.SetInt("bg" + BGIndex, 0);
+        
 
         CongratsBgPanel.SetActive(false);
         BGPanel.SetActive(false);
@@ -2287,12 +2292,11 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             BGs[i].SetActive(true);
         }
-
-        //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
-        //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
-        //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
-
-
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+        PlayerPrefs.SetInt("bg_bought", BGIndex);
+        RenderSettings.skybox = _BGData.BG[BGIndex].Mat;
+        MenuSceneManager.Instance.DirectionalLight.GetComponent<Light>().color = _BGData.BG[BGIndex].LightColor;
     }
 
     #endregion

@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class MenuSceneManager : MonoBehaviour
 {
-
+    [Header("<--- Cameras --->")]
     public GameObject MainCamera;
     public GameObject ShopCamera;
     public GameObject TopDownCamera;
 
-
+    [Header("<--- Lights --->")]
+    public GameObject DirectionalLight;
 
     private static MenuSceneManager _Instance;
     public static MenuSceneManager Instance
@@ -33,7 +34,7 @@ public class MenuSceneManager : MonoBehaviour
     void Start()
     {
 
-       
+
        
 
     }
