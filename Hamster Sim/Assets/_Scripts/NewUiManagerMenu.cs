@@ -747,15 +747,19 @@ public class NewUiManagerMenu : MonoBehaviour
                 CongratsPlayer();
                 PlayerPrefs.SetInt("players" + PlayerIndex, 1);
                 PlayerPrefs.SetInt("player_bought", PlayerIndex);
-            
 
-            else
-            {
-                NotEnoughCashPanel.SetActive(true);
-            }
+
+
+
+          
         }
 
-        else if (PlayerPrefs.GetInt("players" + PlayerIndex) == 1)
+        else
+        {
+            NotEnoughCashPanel.SetActive(true);
+        }
+
+        if (PlayerPrefs.GetInt("players" + PlayerIndex) == 1)
         {
 
 
