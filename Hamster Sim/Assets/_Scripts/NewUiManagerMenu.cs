@@ -723,8 +723,21 @@ public class NewUiManagerMenu : MonoBehaviour
                     PlayerPrefs.SetInt("coins", ToffeeCoins - (_PlayerData.stats[PlayerIndex].Price));
                     ToffeeCoins = PlayerPrefs.GetInt("coins");
                     ToffeeCoinsText.text = PlayerPrefs.GetInt("coins").ToString() + " T";
+
+                    PlayerLock.gameObject.SetActive(false);
+                    BuyToffeeBtn.SetActive(false);
+                    BuyDiamondBtn.SetActive(false);
+                    //WatchVideoBtn.SetActive(false);
+                    SelectBtn.SetActive(true);
+                    Debug.Log("CongratsPlayer");
+                    CongratsPlayer();
+                    PlayerPrefs.SetInt("players" + PlayerIndex, 1);
+                    PlayerPrefs.SetInt("player_bought", PlayerIndex);
                 }
+
+               
             }
+          
 
             if (DiamondCoins >= _PlayerData.stats[PlayerIndex].Price)
             {
@@ -735,35 +748,33 @@ public class NewUiManagerMenu : MonoBehaviour
                     PlayerPrefs.SetInt("diamonds", DiamondCoins - (_PlayerData.stats[PlayerIndex].Price));
                     DiamondCoins = PlayerPrefs.GetInt("diamonds");
                     DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+
+                    PlayerLock.gameObject.SetActive(false);
+                    BuyToffeeBtn.SetActive(false);
+                    BuyDiamondBtn.SetActive(false);
+                    //WatchVideoBtn.SetActive(false);
+                    SelectBtn.SetActive(true);
+                    Debug.Log("CongratsPlayer");
+                    CongratsPlayer();
+                    PlayerPrefs.SetInt("players" + PlayerIndex, 1);
+                    PlayerPrefs.SetInt("player_bought", PlayerIndex);
                 }
 
+               
             }
 
-                PlayerLock.gameObject.SetActive(false);
-                BuyToffeeBtn.SetActive(false);
-                BuyDiamondBtn.SetActive(false);
-                //WatchVideoBtn.SetActive(false);
-                SelectBtn.SetActive(true);
-                CongratsPlayer();
-                PlayerPrefs.SetInt("players" + PlayerIndex, 1);
-                PlayerPrefs.SetInt("player_bought", PlayerIndex);
+            else if(DiamondCoins < _PlayerData.stats[PlayerIndex].Price || ToffeeCoins < _PlayerData.stats[PlayerIndex].Price)
+            {
+                NotEnoughCashPanel.SetActive(true);
+            }
 
+        }
 
-
-
+      
+        else if (PlayerPrefs.GetInt("players" + PlayerIndex) == 1)
           
-        }
-
-        else
         {
-            NotEnoughCashPanel.SetActive(true);
-        }
-
-        if (PlayerPrefs.GetInt("players" + PlayerIndex) == 1)
-        {
-
-
-            PlayerPrefs.SetInt("player_bought", PlayerIndex);
+          PlayerPrefs.SetInt("player_bought", PlayerIndex);
         }
         //AudioManager.instance.PlaySound("buybutton");
 
@@ -778,6 +789,8 @@ public class NewUiManagerMenu : MonoBehaviour
 
         MenuSceneManager.Instance.ShopCamera.SetActive(false);
         MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+
+
 
         for (int i = 0; i < Players.Length; i++)
         {
