@@ -725,16 +725,19 @@ public class NewUiManagerMenu : MonoBehaviour
                     ToffeeCoinsText.text = PlayerPrefs.GetInt("coins").ToString() + " T";
                 }
             }
-                if (DiamondCoins >= _PlayerData.stats[PlayerIndex].Price)
-                {
-                 
+
+            if (DiamondCoins >= _PlayerData.stats[PlayerIndex].Price)
+            {
+
                 if (PlayerIndex == 4 || PlayerIndex == 5 || PlayerIndex == 6)
                 {
 
-                   PlayerPrefs.SetInt("diamonds", DiamondCoins - (_PlayerData.stats[PlayerIndex].Price));
-                   DiamondCoins = PlayerPrefs.GetInt("diamonds");
-                   DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_PlayerData.stats[PlayerIndex].Price));
+                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
+                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
                 }
+
+            }
 
                 PlayerLock.gameObject.SetActive(false);
                 BuyToffeeBtn.SetActive(false);
@@ -744,7 +747,7 @@ public class NewUiManagerMenu : MonoBehaviour
                 CongratsPlayer();
                 PlayerPrefs.SetInt("players" + PlayerIndex, 1);
                 PlayerPrefs.SetInt("player_bought", PlayerIndex);
-            }
+            
 
             else
             {
