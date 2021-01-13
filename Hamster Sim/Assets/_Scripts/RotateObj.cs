@@ -28,7 +28,7 @@ public class RotateObj : MonoBehaviour
             Transform objectHit = hit.transform;
 
             // Do something with the object that was hit by the raycast.
-            Debug.Log(hit.collider.name);
+           // Debug.Log(hit.collider.name);
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);

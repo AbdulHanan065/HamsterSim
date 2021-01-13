@@ -69,7 +69,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
     [Header("<--- Player Stats --->")]
     public int PlayerIndex;
-    public int PlayerCount;
+   
     public GameObject[] Players;
     public Image PlayerImage;
     public TextMeshProUGUI nameText;
@@ -267,6 +267,101 @@ public class NewUiManagerMenu : MonoBehaviour
             RenderSettings.skybox = _BGData.BG[PlayerPrefs.GetInt("bg_bought")].Mat;
             MenuSceneManager.Instance.DirectionalLight.GetComponent<Light>().color = _BGData.BG[PlayerPrefs.GetInt("bg_bought")].LightColor;
         }
+
+        
+
+        WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount = PlayerPrefs.GetInt("TotalPlayerCount");
+
+        for(int i=0;i< PlayerManager.Instance._PlayerType.Length; i++)
+        {
+            PlayerManager.Instance._PlayerType[i].CurrentPlayerCount = PlayerPrefs.GetInt("hamster"+i);
+            Debug.Log("Player type :"+ i+ " Player Count : " + PlayerManager.Instance._PlayerType[i].CurrentPlayerCount);
+        }
+       
+        
+
+
+        if (PlayerPrefs.HasKey("hamster0"))
+        {
+           
+            Debug.Log("hamster0" + PlayerPrefs.GetInt("hamster0"));
+
+            for (int i = 0; i < PlayerPrefs.GetInt("hamster0"); i++)
+            {
+                PlayerManager.Instance._PlayerType[0].Players[i].SetActive(true);
+
+               
+            }
+        }
+        if (PlayerPrefs.HasKey("hamster1"))
+        {
+           
+            Debug.Log("hamster1" + PlayerPrefs.GetInt("hamster1"));
+
+            for (int i = 0; i < PlayerPrefs.GetInt("hamster1"); i++)
+            {
+
+                PlayerManager.Instance._PlayerType[1].Players[i].SetActive(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("hamster2"))
+        {
+            
+            Debug.Log("hamster2" + PlayerPrefs.GetInt("hamster2"));
+
+            for (int i = 0; i < PlayerPrefs.GetInt("hamster2"); i++)
+            {
+
+                PlayerManager.Instance._PlayerType[2].Players[i].SetActive(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("hamster3"))
+        {
+           
+            Debug.Log("hamster3" + PlayerPrefs.GetInt("hamster3"));
+
+            for (int i = 0; i < PlayerPrefs.GetInt("hamster3"); i++)
+            {
+
+                PlayerManager.Instance._PlayerType[3].Players[i].SetActive(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("hamster4"))
+        {
+           
+            Debug.Log("hamster4" + PlayerPrefs.GetInt("hamster4"));
+
+            for (int i = 0; i < PlayerPrefs.GetInt("hamster4"); i++)
+            {
+
+                PlayerManager.Instance._PlayerType[4].Players[i].SetActive(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("hamster5"))
+        {
+           
+            Debug.Log("hamster5" + PlayerPrefs.GetInt("hamster5"));
+
+            for (int i = 0; i < PlayerPrefs.GetInt("hamster5"); i++)
+            {
+
+                PlayerManager.Instance._PlayerType[5].Players[i].SetActive(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("hamster6"))
+        {
+            
+            Debug.Log("hamster6" + PlayerPrefs.GetInt("hamster6"));
+
+            for (int i = 0; i < PlayerPrefs.GetInt("hamster6"); i++)
+            {
+
+                PlayerManager.Instance._PlayerType[6].Players[i].SetActive(true);
+            }
+        }
+
+
+
     }
 
 
@@ -769,14 +864,16 @@ public class NewUiManagerMenu : MonoBehaviour
         MenuSceneManager.Instance.ShopCamera.SetActive(false);
         MenuSceneManager.Instance.TopDownCamera.SetActive(true);
 
-        PlayerManager.Instance._PlayerType[PlayerIndex].Players[WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount].SetActive(true);
-        WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount++;
-
+        
        
-        //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
-        //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
-        //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
+        PlayerManager.Instance._PlayerType[PlayerIndex].Players[PlayerManager.Instance._PlayerType[PlayerIndex].CurrentPlayerCount].SetActive(true);
+        PlayerManager.Instance._PlayerType[PlayerIndex].CurrentPlayerCount++;
+        PlayerPrefs.SetInt("hamster" + PlayerIndex, PlayerManager.Instance._PlayerType[PlayerIndex].CurrentPlayerCount);
 
+
+        WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount++;
+        PlayerPrefs.SetInt("TotalPlayerCount", WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount);
+        Debug.Log("TotalPlayerCount : " + PlayerPrefs.GetInt("TotalPlayerCount"));
 
     }
 

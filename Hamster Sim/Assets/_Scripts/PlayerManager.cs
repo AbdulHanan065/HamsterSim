@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour
     public class PlayerTypes {
 
         public GameObject[] Players;
-
+        public int CurrentPlayerCount;
     }
 
 
