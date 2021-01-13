@@ -47,6 +47,7 @@ public class NewUiManagerMenu : MonoBehaviour
     [Header("<--- Worlds --->")]
     public GameObject WorldDropDown;
     public TextMeshProUGUI WorldNoText;
+    public int WorldNo;
 
     [Header("<--- Panels --->")]
 
@@ -289,9 +290,10 @@ public class NewUiManagerMenu : MonoBehaviour
             //Debug.Log(j);
             WorldManager.Instance._WorldData[j].World.SetActive(false);
         }
+        WorldNo = i - 1;
         WorldManager.Instance._WorldData[i-1].World.SetActive(true);
 
-
+        
     }
 
 
@@ -804,9 +806,11 @@ public class NewUiManagerMenu : MonoBehaviour
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, PlayerManager.Instance._PlayerType[PlayerIndex].CurrentPlayerCount);
 
 
+       
         WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount++;
-        PlayerPrefs.SetInt("TotalPlayerCount", WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount);
-        Debug.Log("TotalPlayerCount : " + PlayerPrefs.GetInt("TotalPlayerCount"));
+        PlayerPrefs.SetInt("TotalPlayerCount"+WorldManager.Instance.WorldIndex, WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount);
+
+        Debug.Log("TotalPlayerCount : " + PlayerPrefs.GetInt("TotalPlayerCount"+ WorldManager.Instance.WorldIndex));
 
     }
 
