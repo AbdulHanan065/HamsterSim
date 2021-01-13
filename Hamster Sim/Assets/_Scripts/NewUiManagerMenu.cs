@@ -724,7 +724,11 @@ public class NewUiManagerMenu : MonoBehaviour
                     ToffeeCoins = PlayerPrefs.GetInt("coins");
                     ToffeeCoinsText.text = PlayerPrefs.GetInt("coins").ToString() + " T";
                 }
-                else if (PlayerIndex == 4 || PlayerIndex == 5 || PlayerIndex == 6)
+            }
+                if (DiamondCoins >= _PlayerData.stats[PlayerIndex].Price)
+                {
+                 
+                if (PlayerIndex == 4 || PlayerIndex == 5 || PlayerIndex == 6)
                 {
 
                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_PlayerData.stats[PlayerIndex].Price));

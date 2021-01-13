@@ -6721,7 +6721,7 @@ MonoBehaviour:
   CagePanel: {fileID: 700410655}
   BGPanel: {fileID: 1279897904}
   NotEnoughCashPanel: {fileID: 2102057863}
-  giveMoney: 1
+  giveMoney: 0
   ToffeeCoins: 0
   DiamondCoins: 0
   ToffeeCoinsText: {fileID: 1713149670}
