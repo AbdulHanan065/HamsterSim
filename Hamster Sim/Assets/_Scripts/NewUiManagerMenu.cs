@@ -2701,7 +2701,7 @@ public class NewUiManagerMenu : MonoBehaviour
             {
                 if (BGIndex == 1 || BGIndex == 2 || BGIndex == 3)
                 {
-                    PlayerPrefs.SetInt("coins", ToffeeCoins - (_BGData.BG[BGIndex].Diamondprice));
+                    PlayerPrefs.SetInt("coins", ToffeeCoins - (_BGData.BG[BGIndex].price));
                     ToffeeCoins = PlayerPrefs.GetInt("coins");
                     ToffeeCoinsText.text = PlayerPrefs.GetInt("coins").ToString() + " T";
 
