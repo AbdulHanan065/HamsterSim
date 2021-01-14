@@ -63,6 +63,7 @@ public class NewUiManagerMenu : MonoBehaviour
     public GameObject[] ShopPanels;
     public int ShopButtonsIndex;
     public GameObject NotEnoughCashPanel;
+    public GameObject LimitReachedPanel;
 
   
     [Header("<--- Economy --->")]
@@ -797,7 +798,7 @@ public class NewUiManagerMenu : MonoBehaviour
         if (PlayerPrefs.GetInt("players" + PlayerIndex) == 0)
         {
 
-            if (ToffeeCoins >= _PlayerData.stats[PlayerIndex].Price)
+            if (ToffeeCoins >= _PlayerData.stats[PlayerIndex].Price && WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount < 10)
             {
                 if (PlayerIndex == 1 || PlayerIndex == 2 || PlayerIndex == 3)
                 {
@@ -822,8 +823,17 @@ public class NewUiManagerMenu : MonoBehaviour
 
             else 
             {
-                ShopPanels[ShopButtonsIndex].SetActive(false);
-                NotEnoughCashPanel.SetActive(true);
+                if (WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount >= 10)
+                {
+                    LimitReachedPanel.SetActive(true);
+                    ShopPanels[ShopButtonsIndex].SetActive(false);
+                }
+                else
+                {
+                    NotEnoughCashPanel.SetActive(true);
+                    ShopPanels[ShopButtonsIndex].SetActive(false);
+                }
+               
             }
 
         }
@@ -844,7 +854,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
 
 
-            if (DiamondCoins >= _PlayerData.stats[PlayerIndex].Price)
+            if (DiamondCoins >= _PlayerData.stats[PlayerIndex].Price && WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount < 10)
             {
 
                 if (PlayerIndex == 4 || PlayerIndex == 5 || PlayerIndex == 6)
@@ -869,8 +879,19 @@ public class NewUiManagerMenu : MonoBehaviour
 
             else
             {
-                ShopPanels[ShopButtonsIndex].SetActive(false);
-                NotEnoughCashPanel.SetActive(true);
+                if(WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount >= 10)
+                {
+                    LimitReachedPanel.SetActive(true);
+                    ShopPanels[ShopButtonsIndex].SetActive(false);
+                   
+                }
+                else
+                {
+                    NotEnoughCashPanel.SetActive(true);
+                    ShopPanels[ShopButtonsIndex].SetActive(false);
+                }
+               
+               
             }
 
         }
@@ -909,32 +930,40 @@ public class NewUiManagerMenu : MonoBehaviour
     public void SelectPlayer()
     {
 
-
-        PlayerPrefs.SetInt("players" + PlayerIndex, 0);
-
-        CongratsPlayerPanel.SetActive(false);
-        PlayerPanel.SetActive(false);
-        ShopMainPanel.SetActive(false);
-        ShopButton.SetActive(true);
-        for (int i = 0; i < Players.Length; i++)
+        if (WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount < 10)
         {
-            Players[i].SetActive(true);
+            PlayerPrefs.SetInt("players" + PlayerIndex, 0);
+
+            CongratsPlayerPanel.SetActive(false);
+            PlayerPanel.SetActive(false);
+            ShopMainPanel.SetActive(false);
+            ShopButton.SetActive(true);
+            for (int i = 0; i < Players.Length; i++)
+            {
+                Players[i].SetActive(true);
+            }
+
+            MenuSceneManager.Instance.ShopCamera.SetActive(false);
+            MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+
+
+            WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].Players[WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].CurrentPlayerCount].SetActive(true);
+            WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].CurrentPlayerCount++;
+            PlayerPrefs.SetInt("hamster" + PlayerIndex + WorldManager.Instance.WorldIndex, WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].CurrentPlayerCount);
+
+
+            WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount++;
+            PlayerPrefs.SetInt("TotalPlayerCount" + WorldManager.Instance.WorldIndex, WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount);
+            Debug.Log("TotalPlayerCount : " + PlayerPrefs.GetInt("TotalPlayerCount" + WorldManager.Instance.WorldIndex));
+
+            FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
         }
+        else 
+        {
 
-        MenuSceneManager.Instance.ShopCamera.SetActive(false);
-        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
-
-
-        WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].Players[WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].CurrentPlayerCount].SetActive(true);
-        WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].CurrentPlayerCount++;
-        PlayerPrefs.SetInt("hamster" + PlayerIndex+WorldManager.Instance.WorldIndex, WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].CurrentPlayerCount);
-
-
-        WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount++;
-        PlayerPrefs.SetInt("TotalPlayerCount"+WorldManager.Instance.WorldIndex, WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount);
-        Debug.Log("TotalPlayerCount : " + PlayerPrefs.GetInt("TotalPlayerCount"+ WorldManager.Instance.WorldIndex));
-
-        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
+            LimitReachedPanel.SetActive(true);
+            ShopPanels[ShopButtonsIndex].SetActive(false);
+        }
 
     }
 
@@ -1002,7 +1031,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
         FindObjectOfType<AudioManager>().PlaySound("next");
 
-
+        Bowls[BowlIndex].GetComponent<DOTweenAnimation>().DORestartById("bowl");
 
     }
 
@@ -1069,7 +1098,7 @@ public class NewUiManagerMenu : MonoBehaviour
             BowlLockImage.gameObject.SetActive(true);
         }
         FindObjectOfType<AudioManager>().PlaySound("next");
-
+        Bowls[BowlIndex].GetComponent<DOTweenAnimation>().DORestartById("bowl");
     }
 
     public void BuyBowlBtn()
@@ -1265,7 +1294,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
         FindObjectOfType<AudioManager>().PlaySound("next");
 
-
+        Foods[FoodIndex].GetComponent<DOTweenAnimation>().DORestartById("food");
 
     }
 
@@ -1332,7 +1361,7 @@ public class NewUiManagerMenu : MonoBehaviour
             FoodLockImage.gameObject.SetActive(true);
         }
         FindObjectOfType<AudioManager>().PlaySound("next");
-
+        Foods[FoodIndex].GetComponent<DOTweenAnimation>().DORestartById("food");
     }
 
     public void BuyFoodBtn()
@@ -1530,7 +1559,7 @@ public class NewUiManagerMenu : MonoBehaviour
         }
 
         FindObjectOfType<AudioManager>().PlaySound("next");
-
+        Houses[HouseIndex].GetComponent<DOTweenAnimation>().DORestartById("house");
 
 
     }
@@ -1599,6 +1628,7 @@ public class NewUiManagerMenu : MonoBehaviour
             HouseLockImage.gameObject.SetActive(true);
         }
         FindObjectOfType<AudioManager>().PlaySound("next");
+        Houses[HouseIndex].GetComponent<DOTweenAnimation>().DORestartById("house");
 
     }
 
@@ -1796,7 +1826,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
         FindObjectOfType<AudioManager>().PlaySound("next");
 
-
+        Feeders[FeederIndex].GetComponent<DOTweenAnimation>().DORestartById("feeder");
 
     }
 
@@ -1863,7 +1893,7 @@ public class NewUiManagerMenu : MonoBehaviour
             FeederLockImage.gameObject.SetActive(true);
         }
         FindObjectOfType<AudioManager>().PlaySound("next");
-
+        Feeders[FeederIndex].GetComponent<DOTweenAnimation>().DORestartById("feeder");
     }
 
 
@@ -2059,7 +2089,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
         FindObjectOfType<AudioManager>().PlaySound("next");
 
-
+        Toys[ToyIndex].GetComponent<DOTweenAnimation>().DORestartById("toy");
 
     }
 
@@ -2126,6 +2156,7 @@ public class NewUiManagerMenu : MonoBehaviour
             ToyLockImage.gameObject.SetActive(true);
         }
         FindObjectOfType<AudioManager>().PlaySound("next");
+        Toys[ToyIndex].GetComponent<DOTweenAnimation>().DORestartById("toy");
 
     }
 
@@ -2322,7 +2353,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
         FindObjectOfType<AudioManager>().PlaySound("next");
 
-
+        Cages[CageIndex].GetComponent<DOTweenAnimation>().DORestartById("cage");
 
     }
 
@@ -2389,7 +2420,7 @@ public class NewUiManagerMenu : MonoBehaviour
             CageLockImage.gameObject.SetActive(true);
         }
         FindObjectOfType<AudioManager>().PlaySound("next");
-
+        Cages[CageIndex].GetComponent<DOTweenAnimation>().DORestartById("cage");
     }
 
 
@@ -2590,7 +2621,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
         FindObjectOfType<AudioManager>().PlaySound("next");
 
-
+        BGs[BGIndex].GetComponent<DOTweenAnimation>().DORestartById("bg");
 
     }
 
@@ -2657,7 +2688,7 @@ public class NewUiManagerMenu : MonoBehaviour
             BGLockImage.gameObject.SetActive(true);
         }
         FindObjectOfType<AudioManager>().PlaySound("next");
-
+        BGs[BGIndex].GetComponent<DOTweenAnimation>().DORestartById("bg");
     }
 
 
