@@ -761,6 +761,31 @@ public class NewUiManagerMenu : MonoBehaviour
             }
           
 
+
+            else 
+            {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
+                NotEnoughCashPanel.SetActive(true);
+            }
+
+        }
+
+      
+        else if (PlayerPrefs.GetInt("players" + PlayerIndex) == 1)
+          
+        {
+          PlayerPrefs.SetInt("player_bought", PlayerIndex);
+        }
+        //AudioManager.instance.PlaySound("buybutton");
+
+    }
+    public void BuyDiamondPlayerBtn()
+    {
+        if (PlayerPrefs.GetInt("players" + PlayerIndex) == 0)
+        {
+
+
+
             if (DiamondCoins >= _PlayerData.stats[PlayerIndex].Price)
             {
 
@@ -781,10 +806,10 @@ public class NewUiManagerMenu : MonoBehaviour
                     PlayerPrefs.SetInt("player_bought", PlayerIndex);
                 }
 
-               
+
             }
 
-            else if(DiamondCoins < _PlayerData.stats[PlayerIndex].Price || ToffeeCoins < _PlayerData.stats[PlayerIndex].Price)
+            else
             {
                 ShopPanels[ShopButtonsIndex].SetActive(false);
                 NotEnoughCashPanel.SetActive(true);
@@ -792,11 +817,11 @@ public class NewUiManagerMenu : MonoBehaviour
 
         }
 
-      
+
         else if (PlayerPrefs.GetInt("players" + PlayerIndex) == 1)
-          
+
         {
-          PlayerPrefs.SetInt("player_bought", PlayerIndex);
+            PlayerPrefs.SetInt("player_bought", PlayerIndex);
         }
         //AudioManager.instance.PlaySound("buybutton");
 
