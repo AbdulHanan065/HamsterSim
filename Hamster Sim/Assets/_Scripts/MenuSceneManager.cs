@@ -34,8 +34,8 @@ public class MenuSceneManager : MonoBehaviour
     void Start()
     {
 
+        FindObjectOfType<AudioManager>().PlaySound("BG");
 
-       
 
     }
 

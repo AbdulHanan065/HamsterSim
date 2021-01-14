@@ -295,7 +295,9 @@ public class NewUiManagerMenu : MonoBehaviour
         WorldNo = i - 1;
         WorldManager.Instance._WorldData[i-1].World.SetActive(true);
 
-        
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
+
+
     }
 
 
@@ -320,6 +322,9 @@ public class NewUiManagerMenu : MonoBehaviour
         ToyIndex = 0;
         BGIndex = 0;
         ShopButtonsIndex = 0;
+
+        
+       
 
         PlayerPreviousBtn.SetActive(false);
         BowlPreviousBtn.SetActive(false);
@@ -432,6 +437,57 @@ public class NewUiManagerMenu : MonoBehaviour
         MenuSceneManager.Instance.ShopCamera.SetActive(true);
         MenuSceneManager.Instance.TopDownCamera.SetActive(false);
 
+        for (int i = 0; i < Players.Length; i++)
+        {
+            Players[i].SetActive(false);
+        }
+        Players[0].SetActive(true);
+
+        for (int i = 0; i < Bowls.Length; i++)
+        {
+            Bowls[i].SetActive(false);
+        }
+        Bowls[0].SetActive(true);
+
+        for (int i = 0; i < Houses.Length; i++)
+        {
+            Houses[i].SetActive(false);
+        }
+        Houses[0].SetActive(true);
+
+        for (int i = 0; i < Cages.Length; i++)
+        {
+            Cages[i].SetActive(false);
+        }
+        Cages[0].SetActive(true);
+
+        for (int i = 0; i < Toys.Length; i++)
+        {
+            Toys[i].SetActive(false);
+        }
+        Toys[0].SetActive(true);
+
+        for (int i = 0; i < BGs.Length; i++)
+        {
+            BGs[i].SetActive(false);
+        }
+        BGs[0].SetActive(true);
+
+        for (int i = 0; i < Feeders.Length; i++)
+        {
+            Feeders[i].SetActive(false);
+        }
+        Feeders[0].SetActive(true);
+
+        for (int i = 0; i < Foods.Length; i++)
+        {
+            Foods[i].SetActive(false);
+        }
+        Foods[0].SetActive(true);
+
+        FindObjectOfType<AudioManager>().PlaySound("menubuttons");
+        
+        
     }
 
 
@@ -448,6 +504,8 @@ public class NewUiManagerMenu : MonoBehaviour
 
         MenuSceneManager.Instance.ShopCamera.SetActive(false);
         MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+
+        FindObjectOfType<AudioManager>().PlaySound("menubuttons");
     }
 
 
@@ -483,7 +541,7 @@ public class NewUiManagerMenu : MonoBehaviour
         BGPanel.SetActive(false);
         CagePanel.SetActive(false);
         FeederPanel.SetActive(false);
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
     }
 
     public void BowlBtn()
@@ -497,7 +555,7 @@ public class NewUiManagerMenu : MonoBehaviour
         BGPanel.SetActive(false);
         CagePanel.SetActive(false);
         FeederPanel.SetActive(false);
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
     }
 
 
@@ -512,7 +570,7 @@ public class NewUiManagerMenu : MonoBehaviour
         BGPanel.SetActive(false);
         CagePanel.SetActive(false);
         FeederPanel.SetActive(false);
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
     }
 
     public void HouseBtn()
@@ -527,7 +585,7 @@ public class NewUiManagerMenu : MonoBehaviour
         CagePanel.SetActive(false);
         FeederPanel.SetActive(false);
 
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -542,7 +600,7 @@ public class NewUiManagerMenu : MonoBehaviour
         BGPanel.SetActive(false);
         CagePanel.SetActive(false);
         FeederPanel.SetActive(false);
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
     }
 
     public void CageBtn()
@@ -556,7 +614,7 @@ public class NewUiManagerMenu : MonoBehaviour
         BGPanel.SetActive(false);
         CagePanel.SetActive(true);
         FeederPanel.SetActive(false);
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
     }
 
     public void BGBtn()
@@ -570,7 +628,7 @@ public class NewUiManagerMenu : MonoBehaviour
         BGPanel.SetActive(true);
         CagePanel.SetActive(false);
         FeederPanel.SetActive(false);
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
     }
 
     public void FeederBtn()
@@ -584,7 +642,7 @@ public class NewUiManagerMenu : MonoBehaviour
         BGPanel.SetActive(false);
         CagePanel.SetActive(false);
         FeederPanel.SetActive(true);
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
     }
 
 
@@ -653,7 +711,7 @@ public class NewUiManagerMenu : MonoBehaviour
             PlayerLock.gameObject.SetActive(true);
         }
 
-        //FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
         Players[PlayerIndex].GetComponent<DOTweenAnimation>().DORestartById("player");
 
@@ -727,7 +785,7 @@ public class NewUiManagerMenu : MonoBehaviour
             SelectBtn.SetActive(false);
             PlayerLock.gameObject.SetActive(true);
         }
-        //  FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
         Players[PlayerIndex].GetComponent<DOTweenAnimation>().DORestartById("player");
     }
 
@@ -776,7 +834,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
           PlayerPrefs.SetInt("player_bought", PlayerIndex);
         }
-        //AudioManager.instance.PlaySound("buybutton");
+        AudioManager.instance.PlaySound("buybutton");
 
     }
     public void BuyDiamondPlayerBtn()
@@ -823,7 +881,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt("player_bought", PlayerIndex);
         }
-        //AudioManager.instance.PlaySound("buybutton");
+        AudioManager.instance.PlaySound("shopbuttons");
 
     }
 
@@ -844,7 +902,7 @@ public class NewUiManagerMenu : MonoBehaviour
             Players[i].SetActive(false);
         }
        
-        //AudioManager.instance.PlaySound("congrats");
+        AudioManager.instance.PlaySound("congrats");
     }
 
 
@@ -875,6 +933,8 @@ public class NewUiManagerMenu : MonoBehaviour
         WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount++;
         PlayerPrefs.SetInt("TotalPlayerCount"+WorldManager.Instance.WorldIndex, WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount);
         Debug.Log("TotalPlayerCount : " + PlayerPrefs.GetInt("TotalPlayerCount"+ WorldManager.Instance.WorldIndex));
+
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -940,7 +1000,7 @@ public class NewUiManagerMenu : MonoBehaviour
             BowlLockImage.gameObject.SetActive(true);
         }
 
-        //FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
 
 
@@ -1008,7 +1068,7 @@ public class NewUiManagerMenu : MonoBehaviour
             SelectBowlBtn.SetActive(false);
             BowlLockImage.gameObject.SetActive(true);
         }
-        //  FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
     }
 
@@ -1053,7 +1113,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("bowl_bought", BowlIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -1096,7 +1156,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("bowl_bought", BowlIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -1113,7 +1173,7 @@ public class NewUiManagerMenu : MonoBehaviour
             Bowls[i].SetActive(false);
         }
         
-        //AudioManager.instance.PlaySound("congrats");
+        AudioManager.instance.PlaySound("congrats");
     }
 
     public void SelectBowl()
@@ -1131,11 +1191,15 @@ public class NewUiManagerMenu : MonoBehaviour
             Bowls[i].SetActive(true);
         }
         ShopButtonsIndex = 0;
+
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
 
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
     }
 
     #endregion
@@ -1199,7 +1263,7 @@ public class NewUiManagerMenu : MonoBehaviour
             FoodLockImage.gameObject.SetActive(true);
         }
 
-        //FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
 
 
@@ -1267,7 +1331,7 @@ public class NewUiManagerMenu : MonoBehaviour
             SelectFoodBtn.SetActive(false);
             FoodLockImage.gameObject.SetActive(true);
         }
-        //  FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
     }
 
@@ -1311,7 +1375,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("food_bought", FoodIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -1357,7 +1421,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("food_bought", FoodIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -1372,7 +1436,7 @@ public class NewUiManagerMenu : MonoBehaviour
             Foods[i].SetActive(false);
         }
         
-        //AudioManager.instance.PlaySound("congrats");
+        AudioManager.instance.PlaySound("congrats");
     }
 
 
@@ -1393,10 +1457,14 @@ public class NewUiManagerMenu : MonoBehaviour
             Foods[i].SetActive(true);
         }
         ShopButtonsIndex = 0;
+
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -1461,7 +1529,7 @@ public class NewUiManagerMenu : MonoBehaviour
             HouseLockImage.gameObject.SetActive(true);
         }
 
-        //FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
 
 
@@ -1530,7 +1598,7 @@ public class NewUiManagerMenu : MonoBehaviour
             SelectHouseBtn.SetActive(false);
             HouseLockImage.gameObject.SetActive(true);
         }
-        //  FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
     }
 
@@ -1572,7 +1640,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("house_bought", HouseIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -1618,7 +1686,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("house_bought", HouseIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -1636,7 +1704,7 @@ public class NewUiManagerMenu : MonoBehaviour
             Houses[i].SetActive(false);
         }
         
-        //AudioManager.instance.PlaySound("congrats");
+        AudioManager.instance.PlaySound("congrats");
     }
 
 
@@ -1655,10 +1723,15 @@ public class NewUiManagerMenu : MonoBehaviour
             Houses[i].SetActive(true);
         }
         ShopButtonsIndex = 0;
+
+
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -1721,7 +1794,7 @@ public class NewUiManagerMenu : MonoBehaviour
             FeederLockImage.gameObject.SetActive(true);
         }
 
-        //FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
 
 
@@ -1789,7 +1862,7 @@ public class NewUiManagerMenu : MonoBehaviour
             SelectFeederBtn.SetActive(false);
             FeederLockImage.gameObject.SetActive(true);
         }
-        //  FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
     }
 
@@ -1832,7 +1905,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("feeder_bought", FeederIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -1878,7 +1951,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("feeder_bought", FeederIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
     void CongratsFeeder()
@@ -1893,7 +1966,7 @@ public class NewUiManagerMenu : MonoBehaviour
             Feeders[i].SetActive(false);
         }
         
-        //AudioManager.instance.PlaySound("congrats");
+        AudioManager.instance.PlaySound("congrats");
     }
 
 
@@ -1912,11 +1985,15 @@ public class NewUiManagerMenu : MonoBehaviour
             Feeders[i].SetActive(true);
         }
         ShopButtonsIndex = 0;
+
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
 
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
     }
 
     #endregion
@@ -1980,7 +2057,7 @@ public class NewUiManagerMenu : MonoBehaviour
             ToyLockImage.gameObject.SetActive(true);
         }
 
-        //FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
 
 
@@ -2048,7 +2125,7 @@ public class NewUiManagerMenu : MonoBehaviour
             SelectToyBtn.SetActive(false);
             ToyLockImage.gameObject.SetActive(true);
         }
-        //  FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
     }
 
@@ -2091,7 +2168,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("toy_bought", ToyIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -2136,7 +2213,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("toy_bought", ToyIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -2152,7 +2229,7 @@ public class NewUiManagerMenu : MonoBehaviour
             Toys[i].SetActive(false);
         }
         
-        //AudioManager.instance.PlaySound("congrats");
+        AudioManager.instance.PlaySound("congrats");
     }
 
 
@@ -2171,10 +2248,14 @@ public class NewUiManagerMenu : MonoBehaviour
             Toys[i].SetActive(true);
         }
         ShopButtonsIndex = 0;
+
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -2239,7 +2320,7 @@ public class NewUiManagerMenu : MonoBehaviour
             CageLockImage.gameObject.SetActive(true);
         }
 
-        //FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
 
 
@@ -2307,7 +2388,7 @@ public class NewUiManagerMenu : MonoBehaviour
             SelectCageBtn.SetActive(false);
             CageLockImage.gameObject.SetActive(true);
         }
-        //  FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
     }
 
@@ -2351,7 +2432,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("cage_bought", CageIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -2397,7 +2478,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("cage_bought", CageIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -2415,7 +2496,7 @@ public class NewUiManagerMenu : MonoBehaviour
             Cages[i].SetActive(false);
         }
         
-        //AudioManager.instance.PlaySound("congrats");
+        AudioManager.instance.PlaySound("congrats");
     }
 
 
@@ -2434,11 +2515,15 @@ public class NewUiManagerMenu : MonoBehaviour
             Cages[i].SetActive(true);
         }
         ShopButtonsIndex = 0;
+
+        MenuSceneManager.Instance.ShopCamera.SetActive(false);
+        MenuSceneManager.Instance.TopDownCamera.SetActive(true);
+
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
 
-
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
     }
 
     #endregion
@@ -2503,7 +2588,7 @@ public class NewUiManagerMenu : MonoBehaviour
             BGLockImage.gameObject.SetActive(true);
         }
 
-        //FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
 
 
@@ -2571,7 +2656,7 @@ public class NewUiManagerMenu : MonoBehaviour
             SelectBGBtn.SetActive(false);
             BGLockImage.gameObject.SetActive(true);
         }
-        //  FindObjectOfType<AudioManager>().PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("next");
 
     }
 
@@ -2614,7 +2699,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("bg_bought", BGIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -2661,7 +2746,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             PlayerPrefs.SetInt("bg_bought", BGIndex);
         }
-        //AudioManager.instance.PlaySound("button");
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
 
     }
 
@@ -2679,7 +2764,7 @@ public class NewUiManagerMenu : MonoBehaviour
             BGs[i].SetActive(false);
         }
        
-        //AudioManager.instance.PlaySound("congrats");
+        AudioManager.instance.PlaySound("congrats");
     }
 
 
@@ -2703,6 +2788,7 @@ public class NewUiManagerMenu : MonoBehaviour
         PlayerPrefs.SetInt("bg_bought", BGIndex);
         RenderSettings.skybox = _BGData.BG[BGIndex].Mat;
         MenuSceneManager.Instance.DirectionalLight.GetComponent<Light>().color = _BGData.BG[BGIndex].LightColor;
+        FindObjectOfType<AudioManager>().PlaySound("shopbuttons");
     }
 
     #endregion

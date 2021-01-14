@@ -13,7 +13,7 @@ public class RotateObj : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        this.gameObject.transform.rotation = new Quaternion (0f,0f,0f,0f);
        
     }
 
