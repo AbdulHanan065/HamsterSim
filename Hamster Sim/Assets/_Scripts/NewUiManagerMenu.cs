@@ -60,6 +60,8 @@ public class NewUiManagerMenu : MonoBehaviour
     public GameObject FeederPanel;
     public GameObject CagePanel;
     public GameObject BGPanel;
+    public GameObject[] ShopPanels;
+    public int ShopButtonsIndex;
     public GameObject NotEnoughCashPanel;
 
   
@@ -242,9 +244,9 @@ public class NewUiManagerMenu : MonoBehaviour
             PlayerPrefs.SetInt("cage" + 0, 1);
             PlayerPrefs.SetInt("bg" + 0, 1);
             PlayerPrefs.SetInt("coins", 5);
-            PlayerPrefs.SetInt("diamonds", 1);
+            PlayerPrefs.SetInt("diamonds", 5);
+
             ToffeeCoins = PlayerPrefs.GetInt("coins");
-            DiamondCoins = PlayerPrefs.GetInt("diamonds");
             ToffeeCoinsText.text = ToffeeCoins.ToString() + " T";
             DiamondCoins = PlayerPrefs.GetInt("diamonds");
             DiamondCoinsText.text = DiamondCoins.ToString() + " D";
@@ -317,7 +319,7 @@ public class NewUiManagerMenu : MonoBehaviour
         CageIndex = 0;
         ToyIndex = 0;
         BGIndex = 0;
-
+        ShopButtonsIndex = 0;
 
         PlayerPreviousBtn.SetActive(false);
         BowlPreviousBtn.SetActive(false);
@@ -448,6 +450,27 @@ public class NewUiManagerMenu : MonoBehaviour
         MenuSceneManager.Instance.TopDownCamera.SetActive(true);
     }
 
+
+    public void ShopButtons(int j)
+    {
+
+        for (int i = 0; i < ShopPanels.Length; i++)
+        {
+
+            ShopPanels[i].SetActive(false);
+        }
+
+        ShopPanels[j].SetActive(true);
+
+         ShopButtonsIndex =j;
+    }
+
+
+    public void NotEnoughCashOkButton()
+    {
+
+        ShopPanels[ShopButtonsIndex].SetActive(true);
+    }
 
     public void PlayerBtn()
     {
@@ -729,7 +752,6 @@ public class NewUiManagerMenu : MonoBehaviour
                     BuyDiamondBtn.SetActive(false);
                     //WatchVideoBtn.SetActive(false);
                     SelectBtn.SetActive(true);
-                    Debug.Log("CongratsPlayer");
                     CongratsPlayer();
                     PlayerPrefs.SetInt("players" + PlayerIndex, 1);
                     PlayerPrefs.SetInt("player_bought", PlayerIndex);
@@ -754,7 +776,6 @@ public class NewUiManagerMenu : MonoBehaviour
                     BuyDiamondBtn.SetActive(false);
                     //WatchVideoBtn.SetActive(false);
                     SelectBtn.SetActive(true);
-                    Debug.Log("CongratsPlayer");
                     CongratsPlayer();
                     PlayerPrefs.SetInt("players" + PlayerIndex, 1);
                     PlayerPrefs.SetInt("player_bought", PlayerIndex);
@@ -765,6 +786,7 @@ public class NewUiManagerMenu : MonoBehaviour
 
             else if(DiamondCoins < _PlayerData.stats[PlayerIndex].Price || ToffeeCoins < _PlayerData.stats[PlayerIndex].Price)
             {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
                 NotEnoughCashPanel.SetActive(true);
             }
 
@@ -796,7 +818,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Players[i].SetActive(false);
         }
-
+       
         //AudioManager.instance.PlaySound("congrats");
     }
 
@@ -825,15 +847,8 @@ public class NewUiManagerMenu : MonoBehaviour
         PlayerPrefs.SetInt("hamster" + PlayerIndex+WorldManager.Instance.WorldIndex, WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].CurrentPlayerCount);
 
 
-        //PlayerManager.Instance._PlayerType[PlayerIndex].Players[PlayerManager.Instance._PlayerType[PlayerIndex].CurrentPlayerCount].SetActive(true);
-        //PlayerManager.Instance._PlayerType[PlayerIndex].CurrentPlayerCount++;
-        //PlayerPrefs.SetInt("hamster" + PlayerIndex, PlayerManager.Instance._PlayerType[PlayerIndex].CurrentPlayerCount);
-
-
-       
         WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount++;
         PlayerPrefs.SetInt("TotalPlayerCount"+WorldManager.Instance.WorldIndex, WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount);
-
         Debug.Log("TotalPlayerCount : " + PlayerPrefs.GetInt("TotalPlayerCount"+ WorldManager.Instance.WorldIndex));
 
     }
@@ -977,6 +992,8 @@ public class NewUiManagerMenu : MonoBehaviour
         if (PlayerPrefs.GetInt("bowl" + BowlIndex) == 0)
         {
 
+           
+
             if (ToffeeCoins >= _BowlData.Bowl_stats[BowlIndex].price)
             {
                 if (BowlIndex == 1 || BowlIndex == 2 || BowlIndex == 3)
@@ -984,32 +1001,28 @@ public class NewUiManagerMenu : MonoBehaviour
                     PlayerPrefs.SetInt("coins", ToffeeCoins - (_BowlData.Bowl_stats[BowlIndex].price));
                     ToffeeCoins = PlayerPrefs.GetInt("coins");
                     ToffeeCoinsText.text = PlayerPrefs.GetInt("coins").ToString() + " T";
+                    BowlLockImage.gameObject.SetActive(false);
+                    BuyBowlToffeeBtn.SetActive(false);
+                    BuyBowlDiamondBtn.SetActive(false);
+                    CongratsBowl();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectBowlBtn.SetActive(true);
+                    PlayerPrefs.SetInt("bowl" + BowlIndex, 1);
+                    PlayerPrefs.SetInt("bowl_bought", BowlIndex);
                 }
-                else if (BowlIndex == 4 || BowlIndex == 5 || BowlIndex == 6)
-                {
-
-                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_BowlData.Bowl_stats[BowlIndex].price));
-                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
-                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
-                }
-
-                BowlLockImage.gameObject.SetActive(false);
-                BuyBowlToffeeBtn.SetActive(false);
-                BuyBowlDiamondBtn.SetActive(false);
-                CongratsBowl();
-                //WatchVideoBtn.SetActive(false);
-                SelectBowlBtn.SetActive(true);
-                PlayerPrefs.SetInt("bowl" + BowlIndex, 1);
-                PlayerPrefs.SetInt("bowl_bought", BowlIndex);
             }
+          
 
-            else
+
+           else 
             {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
                 NotEnoughCashPanel.SetActive(true);
             }
         }
+       
 
-        else if (PlayerPrefs.GetInt("bowl" + BowlIndex) == 1)
+        if (PlayerPrefs.GetInt("bowl" + BowlIndex) == 1)
         {
 
 
@@ -1018,6 +1031,50 @@ public class NewUiManagerMenu : MonoBehaviour
         //AudioManager.instance.PlaySound("button");
 
     }
+
+    public void BuyDiamondBowlBtn()
+    {
+        if (PlayerPrefs.GetInt("bowl" + BowlIndex) == 0)
+        {
+
+
+
+            if (DiamondCoins >= _BowlData.Bowl_stats[BowlIndex].Diamondprice)
+            {
+                if (BowlIndex == 4 || BowlIndex == 5 || BowlIndex == 6)
+                {
+
+                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_BowlData.Bowl_stats[BowlIndex].Diamondprice));
+                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
+                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+                    BowlLockImage.gameObject.SetActive(false);
+                    BuyBowlToffeeBtn.SetActive(false);
+                    BuyBowlDiamondBtn.SetActive(false);
+                    CongratsBowl();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectBowlBtn.SetActive(true);
+                    PlayerPrefs.SetInt("bowl" + BowlIndex, 1);
+                    PlayerPrefs.SetInt("bowl_bought", BowlIndex);
+                }
+            }
+
+            else { 
+                ShopPanels[ShopButtonsIndex].SetActive(false);
+                NotEnoughCashPanel.SetActive(true);
+            }
+        }
+
+
+        if (PlayerPrefs.GetInt("bowl" + BowlIndex) == 1)
+        {
+
+
+            PlayerPrefs.SetInt("bowl_bought", BowlIndex);
+        }
+        //AudioManager.instance.PlaySound("button");
+
+    }
+
 
     void CongratsBowl()
     {
@@ -1030,7 +1087,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Bowls[i].SetActive(false);
         }
-
+        
         //AudioManager.instance.PlaySound("congrats");
     }
 
@@ -1048,7 +1105,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Bowls[i].SetActive(true);
         }
-
+        ShopButtonsIndex = 0;
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
@@ -1201,27 +1258,70 @@ public class NewUiManagerMenu : MonoBehaviour
                     PlayerPrefs.SetInt("coins", ToffeeCoins - (_FoodData.Food_stats[FoodIndex].price));
                     ToffeeCoins = PlayerPrefs.GetInt("coins");
                     ToffeeCoinsText.text = PlayerPrefs.GetInt("coins").ToString() + " T";
-                }
-                else if (FoodIndex == 4 || FoodIndex == 5 || FoodIndex == 6)
-                {
 
-                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_FoodData.Food_stats[FoodIndex].price));
-                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
-                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+                    FoodLockImage.gameObject.SetActive(false);
+                    BuyFoodToffeeBtn.SetActive(false);
+                    BuyFoodDiamondBtn.SetActive(false);
+                    CongratsFood();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectFoodBtn.SetActive(true);
+                    PlayerPrefs.SetInt("food" + FoodIndex, 1);
+                    PlayerPrefs.SetInt("food_bought", FoodIndex);
                 }
 
-                FoodLockImage.gameObject.SetActive(false);
-                BuyFoodToffeeBtn.SetActive(false);
-                BuyFoodDiamondBtn.SetActive(false);
-                CongratsFood();
-                //WatchVideoBtn.SetActive(false);
-                SelectFoodBtn.SetActive(true);
-                PlayerPrefs.SetInt("food" + FoodIndex, 1);
-                PlayerPrefs.SetInt("food_bought", FoodIndex);
             }
+              
+            
 
             else
             {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
+                NotEnoughCashPanel.SetActive(true);
+            }
+        }
+
+        else if (PlayerPrefs.GetInt("food" + FoodIndex) == 1)
+        {
+
+
+            PlayerPrefs.SetInt("food_bought", FoodIndex);
+        }
+        //AudioManager.instance.PlaySound("button");
+
+    }
+
+
+    public void BuyDiamondFoodBtn()
+    {
+        if (PlayerPrefs.GetInt("food" + FoodIndex) == 0)
+        {
+
+
+            if (DiamondCoins >= _FoodData.Food_stats[FoodIndex].Diamondprice)
+            {
+                if (FoodIndex == 4 || FoodIndex == 5 || FoodIndex == 6)
+                {
+
+                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_FoodData.Food_stats[FoodIndex].Diamondprice));
+                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
+                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+
+                    FoodLockImage.gameObject.SetActive(false);
+                    BuyFoodToffeeBtn.SetActive(false);
+                    BuyFoodDiamondBtn.SetActive(false);
+                    CongratsFood();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectFoodBtn.SetActive(true);
+                    PlayerPrefs.SetInt("food" + FoodIndex, 1);
+                    PlayerPrefs.SetInt("food_bought", FoodIndex);
+                }
+            }
+
+
+
+            else
+            {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
                 NotEnoughCashPanel.SetActive(true);
             }
         }
@@ -1246,7 +1346,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Foods[i].SetActive(false);
         }
-
+        
         //AudioManager.instance.PlaySound("congrats");
     }
 
@@ -1267,7 +1367,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Foods[i].SetActive(true);
         }
-
+        ShopButtonsIndex = 0;
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
@@ -1421,27 +1521,22 @@ public class NewUiManagerMenu : MonoBehaviour
                     PlayerPrefs.SetInt("coins", ToffeeCoins - (_HouseData.House_stats[HouseIndex].price));
                     ToffeeCoins = PlayerPrefs.GetInt("coins");
                     ToffeeCoinsText.text = PlayerPrefs.GetInt("coins").ToString() + " T";
-                }
-                else if (HouseIndex == 4 || HouseIndex == 5 || HouseIndex == 6)
-                {
 
-                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_HouseData.House_stats[HouseIndex].price));
-                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
-                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+                    HouseLockImage.gameObject.SetActive(false);
+                    BuyHouseToffeeBtn.SetActive(false);
+                    BuyHouseDiamondBtn.SetActive(false);
+                    CongratsHouse();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectHouseBtn.SetActive(true);
+                    PlayerPrefs.SetInt("house" + HouseIndex, 1);
+                    PlayerPrefs.SetInt("house_bought", HouseIndex);
                 }
-
-                HouseLockImage.gameObject.SetActive(false);
-                BuyHouseToffeeBtn.SetActive(false);
-                BuyHouseDiamondBtn.SetActive(false);
-                CongratsHouse();
-                //WatchVideoBtn.SetActive(false);
-                SelectHouseBtn.SetActive(true);
-                PlayerPrefs.SetInt("house" + HouseIndex, 1);
-                PlayerPrefs.SetInt("house_bought", HouseIndex);
             }
+                
 
             else
             {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
                 NotEnoughCashPanel.SetActive(true);
             }
         }
@@ -1456,6 +1551,54 @@ public class NewUiManagerMenu : MonoBehaviour
 
     }
 
+
+    public void BuyDiamondHouseBtn()
+    {
+        if (PlayerPrefs.GetInt("house" + HouseIndex) == 0)
+        {
+
+
+            if (DiamondCoins >= _HouseData.House_stats[HouseIndex].Diamondprice)
+            {
+                if (HouseIndex == 4 || HouseIndex == 5 || HouseIndex == 6)
+                {
+
+                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_HouseData.House_stats[HouseIndex].Diamondprice));
+                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
+                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+
+                    HouseLockImage.gameObject.SetActive(false);
+                    BuyHouseToffeeBtn.SetActive(false);
+                    BuyHouseDiamondBtn.SetActive(false);
+                    CongratsHouse();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectHouseBtn.SetActive(true);
+                    PlayerPrefs.SetInt("house" + HouseIndex, 1);
+                    PlayerPrefs.SetInt("house_bought", HouseIndex);
+                }
+            }
+
+
+
+            else
+            {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
+                NotEnoughCashPanel.SetActive(true);
+            }
+        }
+
+        else if (PlayerPrefs.GetInt("house" + HouseIndex) == 1)
+        {
+
+
+            PlayerPrefs.SetInt("house_bought", HouseIndex);
+        }
+        //AudioManager.instance.PlaySound("button");
+
+    }
+
+
+
     void CongratsHouse()
     {
         CongratsHousePanel.SetActive(true);
@@ -1467,7 +1610,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Houses[i].SetActive(false);
         }
-
+        
         //AudioManager.instance.PlaySound("congrats");
     }
 
@@ -1486,7 +1629,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Houses[i].SetActive(true);
         }
-
+        ShopButtonsIndex = 0;
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
@@ -1638,27 +1781,68 @@ public class NewUiManagerMenu : MonoBehaviour
                     PlayerPrefs.SetInt("coins", ToffeeCoins - (_FeederData.Feeder_stats[FeederIndex].price));
                     ToffeeCoins = PlayerPrefs.GetInt("coins");
                     ToffeeCoinsText.text = PlayerPrefs.GetInt("coins").ToString() + " T";
+
+                    FeederLockImage.gameObject.SetActive(false);
+                    BuyFeederToffeeBtn.SetActive(false);
+                    BuyFeederDiamondBtn.SetActive(false);
+                    CongratsFeeder();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectFeederBtn.SetActive(true);
+                    PlayerPrefs.SetInt("feeder" + FeederIndex, 1);
+                    PlayerPrefs.SetInt("feeder_bought", FeederIndex);
                 }
-                else if (FeederIndex == 4 || FeederIndex == 5 || FeederIndex == 6)
+
+            }
+                
+            else
+            {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
+                NotEnoughCashPanel.SetActive(true);
+            }
+        }
+
+        else if (PlayerPrefs.GetInt("feeder" + FeederIndex) == 1)
+        {
+
+
+            PlayerPrefs.SetInt("feeder_bought", FeederIndex);
+        }
+        //AudioManager.instance.PlaySound("button");
+
+    }
+
+    public void BuyDiamondFeederBtn()
+    {
+        if (PlayerPrefs.GetInt("feeder" + FeederIndex) == 0)
+        {
+
+
+            if (DiamondCoins >= _FeederData.Feeder_stats[FeederIndex].Diamondprice)
+            {
+
+                if (FeederIndex == 4 || FeederIndex == 5 || FeederIndex == 6)
                 {
 
-                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_FeederData.Feeder_stats[FeederIndex].price));
+                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_FeederData.Feeder_stats[FeederIndex].Diamondprice));
                     DiamondCoins = PlayerPrefs.GetInt("diamonds");
                     DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
-                }
 
-                FeederLockImage.gameObject.SetActive(false);
-                BuyFeederToffeeBtn.SetActive(false);
-                BuyFeederDiamondBtn.SetActive(false);
-                CongratsFeeder();
-                //WatchVideoBtn.SetActive(false);
-                SelectFeederBtn.SetActive(true);
-                PlayerPrefs.SetInt("feeder" + FeederIndex, 1);
-                PlayerPrefs.SetInt("feeder_bought", FeederIndex);
+                    FeederLockImage.gameObject.SetActive(false);
+                    BuyFeederToffeeBtn.SetActive(false);
+                    BuyFeederDiamondBtn.SetActive(false);
+                    CongratsFeeder();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectFeederBtn.SetActive(true);
+                    PlayerPrefs.SetInt("feeder" + FeederIndex, 1);
+                    PlayerPrefs.SetInt("feeder_bought", FeederIndex);
+                }
             }
+
+
 
             else
             {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
                 NotEnoughCashPanel.SetActive(true);
             }
         }
@@ -1683,7 +1867,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Feeders[i].SetActive(false);
         }
-
+        
         //AudioManager.instance.PlaySound("congrats");
     }
 
@@ -1702,7 +1886,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Feeders[i].SetActive(true);
         }
-
+        ShopButtonsIndex = 0;
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
@@ -1855,27 +2039,68 @@ public class NewUiManagerMenu : MonoBehaviour
                     PlayerPrefs.SetInt("coins", ToffeeCoins - (_WheelData.Wheel_stats[ToyIndex].price));
                     ToffeeCoins = PlayerPrefs.GetInt("coins");
                     ToffeeCoinsText.text = PlayerPrefs.GetInt("coins").ToString() + " T";
-                }
-                else if (ToyIndex == 4 || ToyIndex == 5 || ToyIndex == 6)
-                {
 
-                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_WheelData.Wheel_stats[ToyIndex].price));
-                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
-                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+                    ToyLockImage.gameObject.SetActive(false);
+                    BuyToyToffeeBtn.SetActive(false);
+                    BuyToyDiamondBtn.SetActive(false);
+                    CongratsToy();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectToyBtn.SetActive(true);
+                    PlayerPrefs.SetInt("toy" + ToyIndex, 1);
+                    PlayerPrefs.SetInt("toy_bought", ToyIndex);
                 }
 
-                ToyLockImage.gameObject.SetActive(false);
-                BuyToyToffeeBtn.SetActive(false);
-                BuyToyDiamondBtn.SetActive(false);
-                CongratsToy();
-                //WatchVideoBtn.SetActive(false);
-                SelectToyBtn.SetActive(true);
-                PlayerPrefs.SetInt("toy" + ToyIndex, 1);
-                PlayerPrefs.SetInt("toy_bought", ToyIndex);
             }
+                
 
             else
             {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
+                NotEnoughCashPanel.SetActive(true);
+            }
+        }
+
+        else if (PlayerPrefs.GetInt("toy" + ToyIndex) == 1)
+        {
+
+
+            PlayerPrefs.SetInt("toy_bought", ToyIndex);
+        }
+        //AudioManager.instance.PlaySound("button");
+
+    }
+
+    public void BuyDiamondToyBtn()
+    {
+        if (PlayerPrefs.GetInt("toy" + ToyIndex) == 0)
+        {
+
+
+            if (DiamondCoins >= _WheelData.Wheel_stats[ToyIndex].Diamondprice)
+            {
+                if (ToyIndex == 4 || ToyIndex == 5 || ToyIndex == 6)
+                {
+
+                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_WheelData.Wheel_stats[ToyIndex].Diamondprice));
+                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
+                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+
+                    ToyLockImage.gameObject.SetActive(false);
+                    BuyToyToffeeBtn.SetActive(false);
+                    BuyToyDiamondBtn.SetActive(false);
+                    CongratsToy();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectToyBtn.SetActive(true);
+                    PlayerPrefs.SetInt("toy" + ToyIndex, 1);
+                    PlayerPrefs.SetInt("toy_bought", ToyIndex);
+                }
+            }
+
+
+
+            else
+            {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
                 NotEnoughCashPanel.SetActive(true);
             }
         }
@@ -1901,7 +2126,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Toys[i].SetActive(false);
         }
-
+        
         //AudioManager.instance.PlaySound("congrats");
     }
 
@@ -1920,7 +2145,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Toys[i].SetActive(true);
         }
-
+        ShopButtonsIndex = 0;
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
@@ -2074,27 +2299,23 @@ public class NewUiManagerMenu : MonoBehaviour
                     PlayerPrefs.SetInt("coins", ToffeeCoins - (_CageData.Cage_Data[CageIndex].price));
                     ToffeeCoins = PlayerPrefs.GetInt("coins");
                     ToffeeCoinsText.text = PlayerPrefs.GetInt("coins").ToString() + " T";
-                }
-                else if (CageIndex == 4 || CageIndex == 5 || CageIndex == 6)
-                {
 
-                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_CageData.Cage_Data[CageIndex].price));
-                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
-                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+                    CageLockImage.gameObject.SetActive(false);
+                    BuyCageToffeeBtn.SetActive(false);
+                    BuyCageDiamondBtn.SetActive(false);
+                    CongratsCage();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectCageBtn.SetActive(true);
+                    PlayerPrefs.SetInt("cage" + CageIndex, 1);
+                    PlayerPrefs.SetInt("cage_bought", CageIndex);
                 }
 
-                CageLockImage.gameObject.SetActive(false);
-                BuyCageToffeeBtn.SetActive(false);
-                BuyCageDiamondBtn.SetActive(false);
-                CongratsCage();
-                //WatchVideoBtn.SetActive(false);
-                SelectCageBtn.SetActive(true);
-                PlayerPrefs.SetInt("cage" + CageIndex, 1);
-                PlayerPrefs.SetInt("cage_bought", CageIndex);
             }
+                
 
             else
             {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
                 NotEnoughCashPanel.SetActive(true);
             }
         }
@@ -2109,6 +2330,54 @@ public class NewUiManagerMenu : MonoBehaviour
 
     }
 
+
+    public void BuyDiamondCageBtn()
+    {
+        if (PlayerPrefs.GetInt("cage" + CageIndex) == 0)
+        {
+
+
+            if (DiamondCoins >= _CageData.Cage_Data[CageIndex].Diamondprice)
+            {
+                if (CageIndex == 4 || CageIndex == 5 || CageIndex == 6)
+                {
+
+                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_CageData.Cage_Data[CageIndex].Diamondprice));
+                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
+                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+
+                    CageLockImage.gameObject.SetActive(false);
+                    BuyCageToffeeBtn.SetActive(false);
+                    BuyCageDiamondBtn.SetActive(false);
+                    CongratsCage();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectCageBtn.SetActive(true);
+                    PlayerPrefs.SetInt("cage" + CageIndex, 1);
+                    PlayerPrefs.SetInt("cage_bought", CageIndex);
+                }
+            }
+
+
+
+            else
+            {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
+                NotEnoughCashPanel.SetActive(true);
+            }
+        }
+
+        else if (PlayerPrefs.GetInt("cage" + CageIndex) == 1)
+        {
+
+
+            PlayerPrefs.SetInt("cage_bought", CageIndex);
+        }
+        //AudioManager.instance.PlaySound("button");
+
+    }
+
+
+
     void CongratsCage()
     {
         CongratsCagePanel.SetActive(true);
@@ -2120,7 +2389,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Cages[i].SetActive(false);
         }
-
+        
         //AudioManager.instance.PlaySound("congrats");
     }
 
@@ -2139,7 +2408,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             Cages[i].SetActive(true);
         }
-
+        ShopButtonsIndex = 0;
         //Instantiate(_PlayerData.stats[PlayerIndex].HamsterPrefab, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.position, MenuSceneManager.Instance.PlayersSpwanPoint[PlayerIndex].transform.rotation);
         //PlayerPrefs.SetInt("hamster" + PlayerIndex, HamsterCount[PlayerIndex]++);
         //Debug.Log(PlayerPrefs.GetInt("hamster" + PlayerIndex));
@@ -2291,30 +2560,25 @@ public class NewUiManagerMenu : MonoBehaviour
             {
                 if (BGIndex == 1 || BGIndex == 2 || BGIndex == 3)
                 {
-                    PlayerPrefs.SetInt("coins", ToffeeCoins - (_BGData.BG[BGIndex].price));
+                    PlayerPrefs.SetInt("coins", ToffeeCoins - (_BGData.BG[BGIndex].Diamondprice));
                     ToffeeCoins = PlayerPrefs.GetInt("coins");
                     ToffeeCoinsText.text = PlayerPrefs.GetInt("coins").ToString() + " T";
-                }
-                else if (BGIndex == 4 || BGIndex == 5 || BGIndex == 6)
-                {
 
-                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_BGData.BG[BGIndex].price));
-                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
-                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+                    BGLockImage.gameObject.SetActive(false);
+                    BuyBGToffeeBtn.SetActive(false);
+                    BuyBGDiamondBtn.SetActive(false);
+                    CongratsBg();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectBGBtn.SetActive(true);
+                    PlayerPrefs.SetInt("bg" + BGIndex, 1);
+                    PlayerPrefs.SetInt("bg_bought", BGIndex);
                 }
 
-                BGLockImage.gameObject.SetActive(false);
-                BuyBGToffeeBtn.SetActive(false);
-                BuyBGDiamondBtn.SetActive(false);
-                CongratsBg();
-                //WatchVideoBtn.SetActive(false);
-                SelectBGBtn.SetActive(true);
-                PlayerPrefs.SetInt("bg" + BGIndex, 1);
-                PlayerPrefs.SetInt("bg_bought", BGIndex);
             }
-
+               
             else
             {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
                 NotEnoughCashPanel.SetActive(true);
             }
         }
@@ -2329,6 +2593,55 @@ public class NewUiManagerMenu : MonoBehaviour
 
     }
 
+
+    public void BuyDiamondBGBtn()
+    {
+        if (PlayerPrefs.GetInt("bg" + BGIndex) == 0)
+        {
+
+
+            if (DiamondCoins >= _BGData.BG[BGIndex].Diamondprice)
+            {
+
+                if (BGIndex == 4 || BGIndex == 5 || BGIndex == 6)
+                {
+
+                    PlayerPrefs.SetInt("diamonds", DiamondCoins - (_BGData.BG[BGIndex].Diamondprice));
+                    DiamondCoins = PlayerPrefs.GetInt("diamonds");
+                    DiamondCoinsText.text = PlayerPrefs.GetInt("diamonds").ToString() + " D";
+
+                    BGLockImage.gameObject.SetActive(false);
+                    BuyBGToffeeBtn.SetActive(false);
+                    BuyBGDiamondBtn.SetActive(false);
+                    CongratsBg();
+                    //WatchVideoBtn.SetActive(false);
+                    SelectBGBtn.SetActive(true);
+                    PlayerPrefs.SetInt("bg" + BGIndex, 1);
+                    PlayerPrefs.SetInt("bg_bought", BGIndex);
+                }
+            }
+
+
+
+            else
+            {
+                ShopPanels[ShopButtonsIndex].SetActive(false);
+                NotEnoughCashPanel.SetActive(true);
+            }
+        }
+
+        else if (PlayerPrefs.GetInt("bg" + BGIndex) == 1)
+        {
+
+
+            PlayerPrefs.SetInt("bg_bought", BGIndex);
+        }
+        //AudioManager.instance.PlaySound("button");
+
+    }
+
+
+
     void CongratsBg()
     {
         CongratsBgPanel.SetActive(true);
@@ -2340,7 +2653,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             BGs[i].SetActive(false);
         }
-
+       
         //AudioManager.instance.PlaySound("congrats");
     }
 
@@ -2359,6 +2672,7 @@ public class NewUiManagerMenu : MonoBehaviour
         {
             BGs[i].SetActive(true);
         }
+        ShopButtonsIndex = 0;
         MenuSceneManager.Instance.ShopCamera.SetActive(false);
         MenuSceneManager.Instance.TopDownCamera.SetActive(true);
         PlayerPrefs.SetInt("bg_bought", BGIndex);

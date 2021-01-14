@@ -18,23 +18,28 @@ MonoBehaviour:
     Discription: Wood CageWood CageWood Cage
     Mat: {fileID: 2100000, guid: d9b20ceed65abdd428df0147c9488633, type: 2}
     price: 0
+    Diamondprice: 0
   - Icon: {fileID: 21300000, guid: efbb5aef7691ecf409479e6bad3d703e, type: 3}
     Name: Steel Cage
     Discription: Steel CageSteel CageSteel CageSteel Cage
     Mat: {fileID: 2100000, guid: 7f2101bebc3467a4e9d4a73700c66a43, type: 2}
     price: 3
+    Diamondprice: 0
   - Icon: {fileID: 21300000, guid: 4a46b7c6ff6f17a4a95bfb58b3397585, type: 3}
     Name: Modern Cage
     Discription: Modren CageModren CageModren CageModren Cage
     Mat: {fileID: 2100000, guid: 6491c94dec74c7b49bf4c6ba171832c9, type: 2}
     price: 5
+    Diamondprice: 0
   - Icon: {fileID: 21300004, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
     Name: Stylish Cage
     Discription: Stalish CageStalish CageStalish Cage
     Mat: {fileID: 2100000, guid: 6b469c656c8937f4d90b9d0c721702b8, type: 2}
     price: 3
+    Diamondprice: 3
   - Icon: {fileID: 21300000, guid: 848a4494c89203f4e9d2a71ab200d668, type: 3}
     Name: Cute Cage
     Discription: Cute CageCute CageCute CageCute CageCute Cage
     Mat: {fileID: 2100000, guid: 57928c61a9fa660488b68a6aeb2b26d3, type: 2}
     price: 5
+    Diamondprice: 5

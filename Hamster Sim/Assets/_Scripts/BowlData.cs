@@ -18,6 +18,7 @@ public class BowlData : ScriptableObject
         public string Discription;
         public Material _Mat;
         public int price;
+        public int Diamondprice;
 
     }
 

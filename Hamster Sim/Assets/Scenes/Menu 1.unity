@@ -1722,7 +1722,7 @@ Transform:
   m_GameObject: {fileID: 34975437}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.02, y: -47.1, z: 190.36}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 35, y: 1, z: 35}
   m_Children:
   - {fileID: 761179143}
   m_Father: {fileID: 1314598774}
@@ -4416,6 +4416,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 136648918}
+        m_MethodName: ShopButtons
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &84929764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6720,6 +6731,16 @@ MonoBehaviour:
   FeederPanel: {fileID: 1665541822}
   CagePanel: {fileID: 700410655}
   BGPanel: {fileID: 1279897904}
+  ShopPanels:
+  - {fileID: 526513582}
+  - {fileID: 145620141}
+  - {fileID: 1826713052}
+  - {fileID: 2139021956}
+  - {fileID: 1665541822}
+  - {fileID: 700410655}
+  - {fileID: 933756982}
+  - {fileID: 1279897904}
+  ShopButtonsIndex: 0
   NotEnoughCashPanel: {fileID: 2102057863}
   giveMoney: 0
   ToffeeCoins: 0
@@ -8269,7 +8290,7 @@ Transform:
   m_GameObject: {fileID: 168977721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.02, y: -47.1, z: 190.36}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 35, y: 1, z: 35}
   m_Children:
   - {fileID: 1035520820}
   m_Father: {fileID: 1314598774}
@@ -11390,7 +11411,7 @@ Transform:
   m_GameObject: {fileID: 223626858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.02, y: -47.1, z: 190.36}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 35, y: 1, z: 35}
   m_Children:
   - {fileID: 1948536604}
   m_Father: {fileID: 1314598774}
@@ -11789,6 +11810,17 @@ MonoBehaviour:
       - m_Target: {fileID: 136648918}
         m_MethodName: PlayerBtn
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 136648918}
+        m_MethodName: ShopButtons
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -25107,7 +25139,7 @@ MonoBehaviour:
     FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 300
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -26498,6 +26530,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 136648918}
+        m_MethodName: ShopButtons
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -28432,7 +28475,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 136648918}
-        m_MethodName: BuyFeederBtn
+        m_MethodName: BuyDiamondFeederBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28922,6 +28965,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 136648918}
+        m_MethodName: ShopButtons
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -33442,7 +33496,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 136648918}
-        m_MethodName: BuyCageBtn
+        m_MethodName: BuyDiamondCageBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39017,7 +39071,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 136648918}
-        m_MethodName: BuyHouseBtn
+        m_MethodName: BuyDiamondHouseBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -43480,7 +43534,7 @@ Transform:
   m_GameObject: {fileID: 822936783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.02, y: -47.1, z: 190.36}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 35, y: 1, z: 35}
   m_Children:
   - {fileID: 1770731440}
   m_Father: {fileID: 1314598774}
@@ -50275,6 +50329,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 136648918}
+        m_MethodName: NotEnoughCashOkButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &934320033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51520,7 +51585,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
+  far clip plane: 300
   field of view: 40
   orthographic: 0
   orthographic size: 5
@@ -52184,7 +52249,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 136648918}
-        m_MethodName: BuyBowlBtn
+        m_MethodName: BuyDiamondBowlBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59723,7 +59788,7 @@ Transform:
   m_GameObject: {fileID: 1120690447}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.02, y: -47.1, z: 190.36}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 35, y: 1, z: 35}
   m_Children:
   - {fileID: 1219940029}
   m_Father: {fileID: 1314598774}
@@ -61088,7 +61153,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 136648918}
-        m_MethodName: BuyBGBtn
+        m_MethodName: BuyDiamondBGBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -64165,7 +64230,7 @@ Transform:
   m_GameObject: {fileID: 1179523709}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.02, y: -47.1, z: 190.36}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 35, y: 1, z: 35}
   m_Children:
   - {fileID: 773212166}
   m_Father: {fileID: 1314598774}
@@ -65034,7 +65099,7 @@ Transform:
   m_GameObject: {fileID: 1194884375}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.02, y: -47.1, z: 190.36}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 35, y: 1, z: 35}
   m_Children:
   - {fileID: 170713505}
   m_Father: {fileID: 1314598774}
@@ -68254,7 +68319,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 136648918}
-        m_MethodName: BuyToyBtn
+        m_MethodName: BuyDiamondToyBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -83029,7 +83094,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532844024}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102057864}
@@ -83037,7 +83102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -4.3, y: -40}
+  m_AnchoredPosition: {x: -4.3, y: -87.399994}
   m_SizeDelta: {x: 516.2955, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1532844026
@@ -85275,7 +85340,7 @@ Transform:
   m_GameObject: {fileID: 1566116023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.02, y: -47.1, z: 190.36}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 35, y: 1, z: 35}
   m_Children:
   - {fileID: 1028594697}
   m_Father: {fileID: 1314598774}
@@ -92760,6 +92825,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 136648918}
+        m_MethodName: ShopButtons
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1690869754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95115,7 +95191,7 @@ Transform:
   m_GameObject: {fileID: 1724964429}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.02, y: -47.1, z: 190.36}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 35, y: 1, z: 35}
   m_Children:
   - {fileID: 1915810252}
   m_Father: {fileID: 1314598774}
@@ -96654,6 +96730,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 136648918}
+        m_MethodName: ShopButtons
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -102610,7 +102697,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 136648918}
-        m_MethodName: BuyFoodBtn
+        m_MethodName: BuyDiamondFoodBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -102874,7 +102961,7 @@ Transform:
   m_GameObject: {fileID: 1841055319}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.02, y: -47.1, z: 190.36}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 35, y: 1, z: 35}
   m_Children:
   - {fileID: 1938425745}
   m_Father: {fileID: 1314598774}
@@ -107020,6 +107107,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 136648918}
+        m_MethodName: ShopButtons
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1909889591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108816,6 +108914,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 136648918}
+        m_MethodName: ShopButtons
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1965302541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110547,7 +110656,7 @@ MonoBehaviour:
     FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 300
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -116401,7 +116510,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102057863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -109}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 934320031}

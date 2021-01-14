@@ -18,6 +18,7 @@ public class WheelData : ScriptableObject
         public string Discription;
         public Material Mat;
         public int price;
+        public int Diamondprice;
 
     }
 

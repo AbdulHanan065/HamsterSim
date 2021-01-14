@@ -18,33 +18,40 @@ MonoBehaviour:
     Discription: Normal BallNormal BallNormal BallNormal Ball
     Mat: {fileID: 2100000, guid: 7f4437930f1de0c48a974d26810d6f13, type: 2}
     price: 0
+    Diamondprice: 0
   - Icon: {fileID: 21300000, guid: 9dc1b1e35a44b5a4da340dd179166361, type: 3}
     Name: Colorfull Ball
     Discription: Colorfull BallColorfull BallColorfull BallColorfull Ball
     Mat: {fileID: 2100000, guid: 31e841558e1574c45952b4e0630f64e7, type: 2}
     price: 3
+    Diamondprice: 0
   - Icon: {fileID: 21300000, guid: efbb5aef7691ecf409479e6bad3d703e, type: 3}
     Name: Wood Slide
     Discription: Wood SlideWood SlideWood SlideWood Slide
     Mat: {fileID: 2100000, guid: b588688ca9827b14c959e9b18b56a701, type: 2}
     price: 5
+    Diamondprice: 0
   - Icon: {fileID: 21300000, guid: a2adaa3af0ef3874cbb557c21520006f, type: 3}
     Name: Colorfull Slide
     Discription: Colorfull SlideColorfull SlideColorfull SlideColorfull Slide
     Mat: {fileID: 2100000, guid: 7c1633f47b24e214c907e479b5420686, type: 2}
     price: 10
+    Diamondprice: 0
   - Icon: {fileID: 21300006, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
     Name: Wood Swing
     Discription: Fancy SwingFancy SwingFancy SwingFancy Swing
     Mat: {fileID: 2100000, guid: 6e7113c4bb083174aae3d767afbb7b0c, type: 2}
     price: 3
+    Diamondprice: 3
   - Icon: {fileID: 21300002, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
     Name: Fancy Swing
     Discription: Plant SwingPlant SwingPlant SwingPlant Swing
     Mat: {fileID: 2100000, guid: db15cf7d4123b6145bb97d2d94f79267, type: 2}
     price: 5
+    Diamondprice: 5
   - Icon: {fileID: 21300020, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
     Name: Plant Swing
     Discription: y wheely wheely wheely wheely wheel
     Mat: {fileID: 2100000, guid: 7da9e3b3172d02340bcc4cb707d9c1d5, type: 2}
     price: 10
+    Diamondprice: 10

@@ -18,33 +18,40 @@ MonoBehaviour:
     Discription: foodfoodfoodfoodfood
     Mat: {fileID: 2100000, guid: bb73ae86e67a10d42a1b155d4b8d324d, type: 2}
     price: 0
+    Diamondprice: 0
   - Icon: {fileID: 21300000, guid: 848a4494c89203f4e9d2a71ab200d668, type: 3}
     Name: nice food
     Discription: nice foodnice foodnice food
     Mat: {fileID: 2100000, guid: 81e1e706477cdb84ca90458010858686, type: 2}
     price: 3
+    Diamondprice: 0
   - Icon: {fileID: 21300004, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
     Name: my food
     Discription: my foodmy foodmy foodmy food
     Mat: {fileID: 2100000, guid: 48e3017ef9e112842b33bc9eb5d9a640, type: 2}
     price: 5
+    Diamondprice: 0
   - Icon: {fileID: 21300000, guid: 50ceb2e453baaf0498dbe871b0ec074d, type: 3}
     Name: this food
     Discription: this foodthis foodthis foodthis food
     Mat: {fileID: 2100000, guid: ab3344e9a17ac4e46936a2c9a506f47c, type: 2}
     price: 7
+    Diamondprice: 0
   - Icon: {fileID: 21300000, guid: 9fc903a211cc80e4a94ec6c551eefe37, type: 3}
     Name: bad food
     Discription: bad foodbad foodbad foodbad foodbad food
     Mat: {fileID: 2100000, guid: 6d5ed1bd1766a37458d2aec78eeaccc5, type: 2}
     price: 3
+    Diamondprice: 3
   - Icon: {fileID: 21300026, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
     Name: no food
     Discription: no foodno foodno foodno food
     Mat: {fileID: 2100000, guid: efc283947cfc18842bd1732caab509f4, type: 2}
     price: 5
+    Diamondprice: 5
   - Icon: {fileID: 21300016, guid: 0fb8fee1fc53dd04080dcbd9abfb254f, type: 3}
     Name: x food
     Discription: x foodx foodx foodx foodx food
     Mat: {fileID: 2100000, guid: d9b20ceed65abdd428df0147c9488633, type: 2}
     price: 7
+    Diamondprice: 7
