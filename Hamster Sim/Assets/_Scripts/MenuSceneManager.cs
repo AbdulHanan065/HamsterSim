@@ -37,7 +37,19 @@ public class MenuSceneManager : MonoBehaviour
         FindObjectOfType<AudioManager>().PlaySound("BG");
 
 
+
+        //Invoke("inItWait", 1f);
     }
 
+
+    void inItWait()
+    {
+        for (int i = 0; i < WorldManager.Instance._WorldData.Length; i++)
+        {
+            WorldManager.Instance._WorldData[i].World.SetActive(false);
+        }
+
+        WorldManager.Instance._WorldData[0].World.SetActive(true);
+    }
    
 }

@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class ClickOnObj : MonoBehaviour
 {
-    public string ObjTag;
-   
+    public static ClickOnObj instacne;
 
+
+    public string ObjTag;
+    public int Type;
+    public float PlayerEnergy;
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        instacne = this;
     }
 
     void Update()
@@ -25,6 +29,17 @@ public class ClickOnObj : MonoBehaviour
                 {
                     // the object identified by hit.transform was clicked
                     Debug.Log(hit.collider.gameObject.name);
+
+                    // check if object is player
+                    if (hit.collider.gameObject.GetComponent<PlayerStats>())
+                    {
+                        PlayerEnergy = hit.collider.gameObject.GetComponent<PlayerStats>().Energy;
+                        Type = hit.collider.gameObject.GetComponent<PlayerStats>().Type;
+                        Player = hit.collider.gameObject;
+
+
+                    }
+
 
                     NewUiManagerMenu.Instance.MoveToDropDownDown.SetActive(true);
                     // do whatever you want

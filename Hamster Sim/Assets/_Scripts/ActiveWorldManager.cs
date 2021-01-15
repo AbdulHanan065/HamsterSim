@@ -10,6 +10,28 @@ public class ActiveWorldManager : MonoBehaviour
 
 
 
+
+    private void Start()
+    {
+
+
+        for (int j = 0; j < WorldManager.Instance._WorldData.Length; j++)
+        {
+            WorldManager.Instance._WorldData[j].TotalPlayerCount = PlayerPrefs.GetInt("TotalPlayerCount"+j);
+
+            for (int i = 0; i < WorldManager.Instance._WorldData[j].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType.Length; i++)
+            {
+                WorldManager.Instance._WorldData[j].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[i].CurrentPlayerCount = PlayerPrefs.GetInt("hamster"+i+j);
+                Debug.Log("Player type :" + i + " Player Count : " + WorldManager.Instance._WorldData[j].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[i].CurrentPlayerCount);
+            }
+
+
+        }
+
+        
+    }
+
+
     private void OnEnable()
     {
 

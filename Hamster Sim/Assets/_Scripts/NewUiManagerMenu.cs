@@ -949,10 +949,13 @@ public class NewUiManagerMenu : MonoBehaviour
 
 
             WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].Players[WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].CurrentPlayerCount].SetActive(true);
+
+            WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].Players[WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].CurrentPlayerCount].GetComponent<PlayerStats>().Type = PlayerIndex;
+
             WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].CurrentPlayerCount++;
             PlayerPrefs.SetInt("hamster" + PlayerIndex + WorldManager.Instance.WorldIndex, WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].World.GetComponent<ActiveWorldManager>()._PlayerManager.GetComponent<PlayerManager>()._PlayerType[PlayerIndex].CurrentPlayerCount);
 
-
+           
             WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount++;
             PlayerPrefs.SetInt("TotalPlayerCount" + WorldManager.Instance.WorldIndex, WorldManager.Instance._WorldData[WorldManager.Instance.WorldIndex].TotalPlayerCount);
             Debug.Log("TotalPlayerCount : " + PlayerPrefs.GetInt("TotalPlayerCount" + WorldManager.Instance.WorldIndex));
