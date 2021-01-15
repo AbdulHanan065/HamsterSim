@@ -65,6 +65,7 @@ public class NewUiManagerMenu : MonoBehaviour
     public int ShopButtonsIndex;
     public GameObject NotEnoughCashPanel;
     public GameObject LimitReachedPanel;
+    public GameObject LimitReachedCanotMoveinDesiredPanel;
 
   
     [Header("<--- Economy --->")]
